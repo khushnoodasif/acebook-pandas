@@ -1,22 +1,17 @@
 # Acebook
 
-This is a Node.js template for the Acebook engineering project.
+## Installing Locally
 
-It uses:
+```
+$ git clone https://github.com/JonClarke84/acebook-pandas.git
+$ cd acebook-pandas
+$ npm install
+```
+## Run Web App
 
-- [Express](https://expressjs.com/) web framework for Node.js.
-- [Nodemon](https://nodemon.io/) to reload the server automatically.
-- [Handlebars](https://handlebarsjs.com/) to render view templates.
-- [Mongoose](https://mongoosejs.com) to model objects in MongoDB.
-- [ESLint](https://eslint.org) for linting.
-- [Jest](https://jestjs.io/) for testing.
-- [Cypress](https://www.cypress.io/) for end-to-end testing.
-
-## Card wall
-
-REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
-
-## Quickstart
+```
+$ npm start
+```
 
 ### Install Node.js
 
@@ -30,23 +25,12 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
    ```
    nvm install 16
    ```
-
-### Set up your project
-
-1. Fork this repository
-2. Rename your fork to `acebook-<team name>`
-3. Clone your fork to your local machine
-4. Install Node.js dependencies
-   ```
-   npm install
-   ```
-5. Install an ESLint plugin for your editor. For example: [linter-eslint](https://github.com/AtomLinter/linter-eslint) for Atom.
-6. Install MongoDB
+4. Install MongoDB
    ```
    brew tap mongodb/brew
    brew install mongodb-community@4.4
    ```
-7. Start MongoDB
+5. Start MongoDB
    ```
    brew services start mongodb-community@4.4
    ```
@@ -92,4 +76,24 @@ Some people occasionally experience MongoDB connection errors when running the t
 - Check that it's running using `brew services list`
 - Try swapping `localhost`, everywhere that it appears in your codebase, with `127.0.0.1`. It might be surprising but this does sometimes make a difference.
 
-If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
+## Acebook Model
+
+<img src="./public/images/acebook.png">
+<img src="./public/images/acebook-2.png">
+
+## MakersBNB Web Pages
+
+<img src="./public/images/page1.png">
+<img src="./public/images/page2.png">
+<img src="./public/images/page3.png">
+<img src="./public/images/page4.png">
+<img src="./public/images/page5.png">
+<img src="./public/images/page6.png">
+<img src="./public/images/page7.png">
+<img src="./public/images/page8.png">
+<img src="./public/images/page9.png">
+
+## User Stories
+```
+ADD USER STORIES
+```
