@@ -25,4 +25,6 @@ const PostsController = {
   },
 };
 
+const title = "posts";
+
 module.exports = PostsController;
