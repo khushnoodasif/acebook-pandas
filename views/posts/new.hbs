@@ -1,15 +1,22 @@
-<nav class="navMenu">
+<div class="container-3">
+  <div class="card">
+    <nav class="navMenu">
       <a href="/">Home</a>
       <a href="/posts">Posts</a>
       <a href="/posts/new">Add Post</a>
       <a href="/profile">Profile</a>
       <a href="/sessions?_method=DELETE">Log Out</a>
-      <div class="dot"></div>
-</nav>
+    </nav>
+  </div>
+</div>
 
-<form id="new-post-form" action="/posts" method="post">
-  <label for="message">Message: </label>
-  <input id="message" type="text" name="message" value="">
-  <input type="hidden" name="user_id" value="{{user._id}}">
-  <input type="submit" value="Submit">
-</form>
+<div class="container-2">
+  <div class="card">
+    <form id="new-post-form" action="/posts" method="post">
+      <label for="message">Message: </label>
+      <input id="message" type="text" name="message" value="">
+       <input type="hidden" name="user_id" value="{{user._id}}">
+      <input class="button" type="submit" value="Post">
+    </form>
+  </div>
+</div>

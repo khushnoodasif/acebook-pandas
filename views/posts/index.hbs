@@ -1,17 +1,28 @@
-<nav class="navMenu">
+<div class="container-3">
+  <div class="card">
+    <nav class="navMenu">
       <a href="/">Home</a>
       <a href="/posts">Posts</a>
       <a href="/posts/new">Add Post</a>
       <a href="/profile">Profile</a>
       <a href="/sessions?_method=DELETE">Log Out</a>
-      <div class="dot"></div>
-</nav>
+    </nav>
+  </div>
+</div>
 
-<h1>Posts</h1>
-<ul class="posts">
-  {{#each posts}}
-  <li><span>{{this.message}}</span><span>{{this.createdAt}}</span></li>
-  {{/each}}
-</ul>
 
-<a class="new-post-link" href="/posts/new">New post</a>
+<div class="container-2">
+  <div class="card">
+    <h1>Posts</h1>
+    <ul class="posts">
+      {{#each posts}}
+      <li><span>{{this.message}}</span><span>{{this.createdAt}}</span></li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="container-2">
+<form action="/posts/new">
+  <input class="button" type="submit" value="New Post" />
+</div>
