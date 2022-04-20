@@ -10,7 +10,7 @@
 <h1>Posts</h1>
 <ul class="posts">
   {{#each posts}}
-  <li>{{this.message}}</li>
+  <li><span>{{this.message}}</span><span>{{this.createdAt}}</span></li>
   {{/each}}
 </ul>
 
