@@ -1,4 +1,4 @@
-# Acebook
+# AceBook
 
 ## Installing Locally
 
@@ -76,12 +76,12 @@ Some people occasionally experience MongoDB connection errors when running the t
 - Check that it's running using `brew services list`
 - Try swapping `localhost`, everywhere that it appears in your codebase, with `127.0.0.1`. It might be surprising but this does sometimes make a difference.
 
-## Acebook Model
+## AceBook Model
 
-<img src="./public/images/acebook.png">
-<img src="./public/images/acebook-2.png">
+<img src="./public/images/acebook-model.png">
+<img src="./public/images/acebook-model-2.png">
 
-## MakersBNB Web Pages
+## AceBook Web Pages
 
 <img src="./public/images/page1.png">
 <img src="./public/images/page2.png">
