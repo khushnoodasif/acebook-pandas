@@ -1,3 +1,5 @@
+var mongoose = require("mongoose")
+
 require("../mongodb_helper");
 var Post = require("../../models/post");
 
@@ -14,10 +16,9 @@ describe("Post model", () => {
   });
 
   it("has a user ID", () => {
-    let user = { _id: "some-id" };
     var post = new Post({ message: "some message",
-                         user_id: user._id });
-    expect(post.user_id).toEqual(user._id);
+                         user_id: 5 });
+    expect(post.user_id).toEqual("5");
   });
 
   it("has the time of post creation", () => {
