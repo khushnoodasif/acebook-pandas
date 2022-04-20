@@ -15,6 +15,7 @@
     <form id="new-post-form" action="/posts" method="post">
       <label for="message">Message: </label>
       <input id="message" type="text" name="message" value="">
+       <input type="hidden" name="user_id" value="{{user._id}}">
       <input class="button" type="submit" value="Post">
     </form>
   </div>
