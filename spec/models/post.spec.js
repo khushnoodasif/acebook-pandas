@@ -15,6 +15,19 @@ describe("Post model", () => {
     expect(post.message).toEqual("some message");
   });
 
+  it("has the time of post creation", () => {
+    const mockDateObject = new Date("2022-04-20T13:33:42.767Z")
+    const spy = jest
+    .spyOn(global, 'Date')
+    .mockImplementation(() => mockDateObject)
+
+    var post = new Post({ message: "some message"})
+    
+    spy.mockRestore()
+
+    expect(post.createdAt).toEqual(new Date("2022-04-20T13:33:42.767Z"))
+  });
+
   it("can list all posts", (done) => {
     Post.find((err, posts) => {
       expect(err).toBeNull();

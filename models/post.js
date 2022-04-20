@@ -4,7 +4,7 @@ const PostSchema = new mongoose.Schema({
   message: String,
   createdAt: {
     type: Date,
-    default: Date.now
+    default: new Date()
   },
   user_id: String  
 });
