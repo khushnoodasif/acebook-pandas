@@ -25,10 +25,10 @@
 }
 
 .card {
-background-color: #E8E8E8;
-border: 2px solid #393E46;
-padding: 1px;
-border-radius: 30px;
+  background-color: #E8E8E8;
+  border: 2px solid #393E46;
+  padding: 1px;
+  border-radius: 30px;
 }
 
 body {
@@ -48,10 +48,14 @@ body {
 } */
 
 body .logo {
-  width : 18%;
-  display : block;
-  margin : 0 auto;
+  width: 18%;
+  display: block;
+  margin: 0 auto;
   margin-bottom: -7%;
+}
+
+h1:hover {
+  color: #7D0633;
 }
 
 a {
@@ -91,4 +95,25 @@ footer {
 
 .navMenu a:hover {
   color: #7D0633;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Antonio', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #FDF6F0;
+  background-color: #231815;
+  text-align: center;
+  transition: all 0.2s;
+  margin-left: 10px;
+}
+
+.button:hover {
+  background-color: #7D0633;
 }
