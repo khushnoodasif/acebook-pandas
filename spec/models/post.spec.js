@@ -42,6 +42,12 @@ describe("Post model", () => {
     });
   });
 
+  it("can show number of likes", () => {
+    var post = new Post({ message: "some message"})
+
+    expect(post.likes.length).toEqual(0)
+  })
+
   it("can save a post", (done) => {
     var post = new Post({ message: "some message" });
 
