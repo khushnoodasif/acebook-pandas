@@ -1,3 +1,4 @@
+const { db } = require("../models/user");
 const User = require("../models/user");
 
 const UsersController = {
@@ -7,11 +8,7 @@ const UsersController = {
 
   Profile: (req, res) => {
     res.render("users/profile", {
-      email: String,
-      password: String,
-      firstName: 'String',
-      lastName: {{lastName}},
-      profilePictureURL: {profilePictureURL},
+      user: req.session.user,
     });
   },
 
