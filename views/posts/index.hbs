@@ -19,9 +19,8 @@
       <span>{{this.createdAt}}</span>
       <span><button type="button" name="{{this._id}}-like-button" 
       class="like-button" id="{{this._id}}-like-button"
-      onclick="likeButton('{{this._id}}-like-button', {{db}})" 
-      
-      >👍 {{this.likes.length}}</button>
+      onclick="likeButton('{{this._id}}-like-button', {{db.connection.collections}})">
+      👍 {{this.likes.length}}</button>
       </span></li>
       {{/each}}
     </ul>
