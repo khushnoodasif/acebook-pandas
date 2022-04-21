@@ -3,6 +3,6 @@ describe("Liking Posts", () => {
     cy.visit("/posts")
     cy.get("li").first().find(".like-button").click()
 
-    cy.get("li").first().should("contain", "Likes: 1")
+    cy.get("li").first().should("contain", "🐼 1")
   })
 })

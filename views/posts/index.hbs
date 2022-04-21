@@ -17,7 +17,12 @@
       {{#each posts}}
       <li class="list-item"><span>{{this.message}}</span>
       <span>{{this.createdAt}}</span>
-      <span>Likes: {{this.likes.length}}</span></li>
+      <span><button type="button" name="{{this._id}}-like-button" 
+      class="like-button" id="{{this._id}}-like-button"
+      onclick="likeButton('{{this._id}}-like-button', {{db}})" 
+      
+      >👍 {{this.likes.length}}</button>
+      </span></li>
       {{/each}}
     </ul>
   </div>
@@ -27,3 +32,5 @@
 <form action="/posts/new">
   <input class="button" type="submit" value="New Post" />
 </div>
+
+<script src="javascripts/like_button.js"></script>
