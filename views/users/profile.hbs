@@ -1,0 +1,40 @@
+<div class="container-3">
+  <div class="card">
+    <nav class="navMenu">
+      <a href="/">Home</a>
+      <a href="/posts">Posts</a>
+      <a href="/posts/new">Add Post</a>
+      <a href="/users/profile">Profile</a>
+      <a href="/sessions?_method=DELETE">Log Out</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card">
+    <h1>USER PROFILE</h1>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card">
+    <form id="user-profile" action="/users/profile" method="post">
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" name="firstName" value={{{firstName}}} />
+      <label for="lastName">Last Name</label>
+      <input id="lastName" type="text" name="lastName" value={{lasttName}} />
+      <label for="email">Email: </label>
+      <input id="email" type="email" name="email" value={{email}} />
+      <label for="password">Password: </label>
+      <input id="password" type="password" name="password" value={{password}} />
+      <label for="profilePictureURL">Profile Picture URL: </label>
+      <input
+        id="profilePictureURL"
+        type="text"
+        name="profilePictureURL"
+        value={{profilePictureURL}}
+      />
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </div>
+</div>
