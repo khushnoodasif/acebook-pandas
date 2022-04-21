@@ -20,6 +20,9 @@
   <div class="card">
     <form class="form-1" id="user-profile" action="/users/profile" method="post">
       <li>
+        <img class="img-2" id="profilePictureURL" src="{{user.profilePictureURL}}" />
+      </li>
+      <li>
         <label for="firstName">First Name</label>
         <input class="button" id="firstName" type="text" name="firstName" value="{{user.firstName}}" />
       </li>
@@ -34,10 +37,6 @@
       <li>
         <label for="password">Password: </label>
         <input class="button" id="password" type="password" name="password" value="{{user.password}}" />
-      </li>
-      <li>
-        <label for="profilePictureURL">Profile Picture URL: </label>
-        <input class="button" id="profilePictureURL" type="text" name="profilePictureURL" value="{{user.profilePictureURL}}" />
       </li>
       <input class="button-2" id="submit" type="submit" value="Submit Changes" />
     </form>
