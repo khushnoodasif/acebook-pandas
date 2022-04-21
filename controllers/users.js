@@ -4,6 +4,10 @@ const UsersController = {
   New: (req, res) => {
     res.render("users/new", {});
   },
+  
+  Profile: (req, res) => {
+    res.render("users/profile", {});
+  },
 
   Create: (req, res) => {
     const user = new User(req.body);
