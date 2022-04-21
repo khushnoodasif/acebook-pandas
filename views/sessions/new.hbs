@@ -6,27 +6,24 @@
 
 <div class="container-2">
   <div class="card">
-    <form id="new-session-form" action="/sessions" method="post">
+    <form class="form-1" id="new-session-form" action="/sessions" method="post">
       <li>
         <label for="email">Email: </label>
-        <input class="button" id="email" type="email" name="email" value="" />
+        <input class="button" id="email" type="email" name="email" />
       </li>
       <li>
         <label for="password">Password: </label>
-        <input class="button" id="password" type="password" name="password" value="" />
+        <input class="button" id="password" type="password" name="password" />
       </li>
       <li>
         <input class="button" id="submit" type="submit" value="Submit" />
       </li>
-
     </form>
   </div>
 </div>
 
 <div class="container-2">
-  <nav class="navMenu">
-    <button class="button" href="/users/new">Not a member? Click here to sign
-      up!</button>
-    <div class="dot"></div>
-  </nav>
+  <form action="/users/new">
+    <input class="button" type="submit" value="Not a member? Click here to Sign Up!" />
+  </form>
 </div>
