@@ -45,6 +45,7 @@ body {
   border-radius: 50%;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 body .logo {
@@ -52,6 +53,10 @@ body .logo {
   display: block;
   margin: 0 auto;
   margin-bottom: -7%;
+}
+
+.logo:hover {
+  background: url("images/") no-repeat;
 }
 
 h1:hover {
