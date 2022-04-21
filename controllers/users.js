@@ -4,9 +4,15 @@ const UsersController = {
   New: (req, res) => {
     res.render("users/new", {});
   },
-  
+
   Profile: (req, res) => {
-    res.render("users/profile", {});
+    res.render("users/profile", {
+      email: String,
+      password: String,
+      firstName: 'String',
+      lastName: {{lastName}},
+      profilePictureURL: {profilePictureURL},
+    });
   },
 
   Create: (req, res) => {
