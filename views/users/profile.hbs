@@ -19,14 +19,15 @@
 <div class="container-2">
   <div class="card">
     <form class="form-1" id="user-profile" action="/users/profile" method="post">
-      <img class="img-2" id="profilePictureURL" src="{{user.profilePictureURL}}" />
-      <br>
+      <span>
+        <img class="img-2" id="profilePictureURL" src="{{user.profilePictureURL}}" />
+      <span>
       <li>
-        <label for="firstName">First Name</label>
+        <label for="firstName">First Name:</label>
         <input class="button" id="firstName" type="text" name="firstName" value="{{user.firstName}}" />
       </li>
       <li>
-        <label for="lastName">Last Name</label>
+        <label for="lastName">Last Name:</label>
         <input class="button" id="lastName" type="text" name="lastName" value="{{user.lastName}}" />
       </li>
       <li>
@@ -37,11 +38,19 @@
         <label for="password">Password: </label>
         <input class="button" id="password" type="password" name="password" value="{{user.password}}" />
       </li>
-      <input class="button-2" id="submit" type="submit" value="Submit Changes" />
-    </form>
 
-    <form class="form-1" id="user-profile" action="/users/profile" method="post">
+      <br>
+        <input class="button-2" id="submit" type="submit" value="Submit Changes" />
+
       <p>Please log out and log back in to see your changes.</p>
+    </form>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card">
+    <form class="form-1" id="user-profile" action="/users/profile" method="post">
+      <p>If you wish to delete you account, press the button below.</p>
       <input class="button-2" id="delete" type="submit" value="Remove Account" />
     </form>
   </div>
