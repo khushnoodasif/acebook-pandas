@@ -1,8 +1,15 @@
+const { db } = require("../models/user");
 const User = require("../models/user");
 
 const UsersController = {
   New: (req, res) => {
     res.render("users/new", {});
+  },
+
+  Profile: (req, res) => {
+    res.render("users/profile", {
+      user: req.session.user,
+    });
   },
 
   Create: (req, res) => {
@@ -14,6 +21,15 @@ const UsersController = {
       res.status(201).redirect("/posts");
     });
   },
+
+  Update: (req, res) => {
+    User.findByIdAndUpdate(req.session.user._id, req.body, (err, user) => {
+      if (err) {
+        throw err;
+      }
+      res.redirect("/users/profile");
+    });
+  }
 };
 
 module.exports = UsersController;

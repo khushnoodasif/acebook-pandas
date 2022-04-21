@@ -1,5 +1,11 @@
 # AceBook
 
+## Checkout the app!
+
+```
+https://acebook-makers.herokuapp.com/
+```
+
 ## Installing Locally
 
 ```
