@@ -1,10 +1,9 @@
-# AceBook
+# <p align="center"> AceBook </p>
 
-## Checkout the app!
+## <p align="center"> Checkout the app! </p>
 
-```
-https://acebook-makers.herokuapp.com/
-```
+<p align="center"> https://acebook-makers.herokuapp.com/</p>
+
 
 ## Installing Locally
 
