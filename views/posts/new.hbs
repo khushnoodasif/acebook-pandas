@@ -12,10 +12,16 @@
 
 <div class="container-2">
   <div class="card">
-    <form id="new-post-form" action="/posts" method="post">
+    <form class="form-1" id="new-post-form" action="/posts" method="post">
+    <li>
+      <label for="name">Name: </label>
+      <input class="button" id="name" type="text" name="name" value="">
+    </li>
+    <li>
       <label for="message">Message: </label>
-      <input id="message" type="text" name="message" value="">
-       <input type="hidden" name="user_id" value="{{user._id}}">
+      <input class="button-3" id="message" type="text" name="message" value="">
+    </li>
+      <input type="hidden" name="user_id" value="{{user._id}}">
       <input class="button" type="submit" value="Post">
     </form>
   </div>
