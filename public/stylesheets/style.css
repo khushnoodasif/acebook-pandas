@@ -38,6 +38,7 @@ body {
 }
 
 .img-2 {
+  display: block;
   margin: 0 auto;
   width: 20%;
   height: 20%;
@@ -45,10 +46,13 @@ body {
   border-radius: 50%;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
 }
 
-body .logo {
+span .img-2{
+  margin-bottom: 15px;
+}
+
+.logo {
   width: 18%;
   display: block;
   margin: 0 auto;
@@ -56,7 +60,9 @@ body .logo {
 }
 
 .logo:hover {
-  background: url("images/") no-repeat;
+  /* background: url(/images/acebook-purple.png) no-repeat; */
+  width: 17.5%;
+  color: #7d0633;
 }
 
 h1:hover {
@@ -84,6 +90,7 @@ footer {
 .navMenu {
   position: relative;
   font-family: "Antonio", sans-serif;
+  margin: 2em;
 }
 
 .navMenu a {
@@ -100,6 +107,7 @@ footer {
 
 .navMenu a:hover {
   color: #7d0633;
+  font-size: 1.5em;
 }
 
 .button {
@@ -165,11 +173,11 @@ footer {
 }
 
 .form-1 {
-  display: table;
+  display: inline-block;
   margin: 0 auto;
   margin-top: 5vh;
   text-align: center;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 
 .form-1 li {
@@ -177,6 +185,23 @@ footer {
 }
 
 .form-1 label {
+  display: table-cell;
+  font-size: 2em;
+}
+
+.form-2 {
+  display: table;
+  margin: 0 auto;
+  margin-top: 5vh;
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+.form-2 li {
+  display: table-row;
+}
+
+.form-2 label {
   display: table-cell;
   font-size: 2em;
 }
