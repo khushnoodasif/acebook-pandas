@@ -14,14 +14,14 @@ describe("Timeline", () => {
 
     // submit a post
     cy.visit("/posts");
-    cy.contains("New post").click();
+    cy.contains("New Post").click();
 
     cy.get("#new-post-form").find('[type="text"]').type("Hello, world!");
     cy.get("#new-post-form").submit();
 
     //submit another post
     cy.visit("/posts");
-    cy.contains("New post").click();
+    cy.contains("New Post").click();
 
     cy.get("#new-post-form").find('[type="text"]').type("Hello again, world!");
     cy.get("#new-post-form").submit();
