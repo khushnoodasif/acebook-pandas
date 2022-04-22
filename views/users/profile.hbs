@@ -38,11 +38,15 @@
         <label for="password">Password: </label>
         <input class="button" id="password" type="password" name="password" value="{{user.password}}" />
       </li>
+      <li>
+        <label for="profilePictureURL">Profile Picture URL: </label>
+        <input class="button" id="profilePictureURL" type="profilePictureURL" name="profilePictureURL" value="{{user.profilePictureURL}}" />
+      </li>
 
       <br>
         <input class="button-2" id="submit" type="submit" value="Submit Changes" />
 
-      <p>Please log out and log back in to see your changes.</p>
+      <p>Please <a class="link" href="/">log out</a> and log back in to see your changes.</p>
     </form>
   </div>
 </div>
