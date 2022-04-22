@@ -36,6 +36,16 @@ const PostsController = {
       res.status(201).redirect("/posts");
     });
   },
+
+  Like: (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, { $inc: { likes: 1 } }, (err, post) => {
+      if (err) {
+        throw err;
+      }
+
+      res.redirect("/posts");
+    });
+  }
 };
 
 module.exports = PostsController;
