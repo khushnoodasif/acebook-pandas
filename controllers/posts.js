@@ -7,12 +7,25 @@ const PostsController = {
         throw err;
       }
 
-      res.render("posts/index", { posts: posts.reverse(), user: req.session.user, db: require("mongoose")});
+      res.render("posts/index", {
+        posts: posts.reverse(),
+        user: req.session.user,
+      });
     });
   },
   New: (req, res) => {
-    res.render("posts/new", {user: req.session.user});
+    res.render("posts/new", { user: req.session.user });
   },
+
+  Like: (req, res) => {
+    Post.updateOne({ _id: req.body.post }, { $push: { likes: "1" } }, (err) => {
+      if (err) {
+        throw err;
+      }
+      res.status(201).redirect("/posts");
+    });
+  },
+
   Create: (req, res) => {
     const post = new Post(req.body);
     post.save((err) => {
