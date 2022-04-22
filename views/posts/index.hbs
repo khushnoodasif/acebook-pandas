@@ -17,8 +17,8 @@
       {{#each posts}}
       <li class="list-item"><span>{{this.message}}</span>
       <span>{{this.createdAt}}</span>
-      <span><form>
-        <input type="hidden" name="like" value="{{this.id}}" method="Post" action="/posts/like">
+      <span><form method="post" action="/posts/like">
+        <input type="hidden" name="post" value="{{this._id}}">
         <input type="submit" value="👍 {{this.likes.length}}">
       </form>
       
