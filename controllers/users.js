@@ -22,6 +22,12 @@ const UsersController = {
     });
   },
 
+  Remove: (req, res) => {
+    res.render("users/delete", {
+      user: req.session.user,
+    });
+  },
+
   Update: (req, res) => {
     User.findByIdAndUpdate(req.session.user._id, req.body, (err, user) => {
       if (err) {
@@ -36,7 +42,7 @@ const UsersController = {
       if (err) {
         throw err;
       }
-      res.redirect("/");
+      res.redirect("/users/delete");
     });
   },
 
