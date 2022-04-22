@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 
 beforeAll(function(done) {
-  mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost:27017/acebook',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    },
-  );
+  // mongoose.connect(
+  //   process.env.MONGODB_URI || 'mongodb://localhost:27017/acebook',
+  //   {
+  //     useNewUrlParser: true,
+  //     useUnifiedTopology: true,
+  //   },
+  // );
 
   mongoose.connect('mongodb://127.0.0.1/acebook_test', {
     useNewUrlParser: true,
