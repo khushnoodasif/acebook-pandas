@@ -15,7 +15,10 @@
     <h1>Posts</h1>
     <ul class="posts">
       {{#each posts}}
-      <li class="list-item"><span>{{this.message}}</span>
+      <li class="list-item">
+      <span><img src="{{this.profilePictureURL}}"></span>
+      <span>{{this.firstName}} {{this.lastName}}</span>
+      <span>{{this.message}}</span>
       <span>{{this.createdAt}}</span>
       <span><form method="post" action="/posts/like">
         <input type="hidden" name="post" value="{{this._id}}">
@@ -32,5 +35,3 @@
 <form action="/posts/new">
   <input class="button" type="submit" value="New Post" />
 </div>
-
-<script src="javascripts/like_button.js"></script>

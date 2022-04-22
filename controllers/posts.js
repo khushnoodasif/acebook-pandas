@@ -9,7 +9,7 @@ const PostsController = {
 
       res.render("posts/index", {
         posts: posts.reverse(),
-        user: req.session.user,
+        user: req.session.user
       });
     });
   },

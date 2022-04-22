@@ -7,6 +7,9 @@ const PostSchema = new mongoose.Schema({
     default: new Date()
   },
   user_id: String,
+  firstName: String,
+  lastName: String,
+  profilePictureURL: String,
   likes: Array
 });
 
