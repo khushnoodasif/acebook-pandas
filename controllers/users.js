@@ -29,6 +29,20 @@ const UsersController = {
       }
       res.redirect("/users/profile");
     });
+  },
+
+  Delete: (req, res) => {
+    User.findByIdAndDelete(req.session.user._id, req.body, (err, user) => {
+      if (err) {
+        throw err;
+      }
+      res.redirect("/");
+    });
+  },
+
+  Logout: (req, res) => {
+    req.session.destroy();
+    res.redirect("/");
   }
 };
 
