@@ -7,7 +7,7 @@ const PostsController = {
         throw err;
       }
 
-      res.render("posts/index", { posts: posts.reverse(), user: req.session.user, db: require("mongoose")});
+      res.render("posts/index", { posts: posts.reverse(), user: req.session.user });
     });
   },
   New: (req, res) => {
