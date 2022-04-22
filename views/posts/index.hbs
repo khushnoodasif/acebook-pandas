@@ -19,7 +19,7 @@
       <span><img src="{{this.profilePictureURL}}"></span>
       <span>{{this.firstName}} {{this.lastName}}</span>
       <span>{{this.message}}</span>
-      <span>{{this.createdAt}}</span>
+      <span>Posted on: {{this.createdAt}}</span>
       <span><form method="post" action="/posts/like">
         <input type="hidden" name="post" value="{{this._id}}">
         <input type="submit" value="👍 {{this.likes.length}}">
@@ -35,3 +35,5 @@
 <form action="/posts/new">
   <input class="button" type="submit" value="New Post" />
 </div>
+
+<script src="/javascripts/dateFormat.js"></script>
