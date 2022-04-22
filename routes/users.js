@@ -7,7 +7,7 @@ router.get("/new", UsersController.New);
 router.post("/", UsersController.Create);
 router.post("/profile", UsersController.Update);
 router.get("/profile", UsersController.Profile);
-router.get("/", UsersController.Delete);
+router.post("/", UsersController.Delete);
 router.get("/", UsersController.Logout);
 
 module.exports = router;

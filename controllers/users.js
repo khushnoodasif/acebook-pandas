@@ -32,7 +32,7 @@ const UsersController = {
   },
 
   Delete: (req, res) => {
-    User.findByIdAndDelete(req.session.user._id, req.body, (err, user) => {
+    User.findByIdAndDelete(req.session.user._id, (err, user) => {
       if (err) {
         throw err;
       }
