@@ -18,7 +18,7 @@ const PostsController = {
   },
 
   Like: (req, res) => {
-    Post.updateOne({ _id: req.body.post }, { $push: { likes: "1" } }, (err) => {
+    Post.updateOne({ _id: req.body.post }, { $addToSet: { likes: req.session.user } }, (err) => {
       if (err) {
         throw err;
       }
