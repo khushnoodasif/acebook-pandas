@@ -25,21 +25,22 @@
   {{#each posts}}
   <div class="container-4">
     <div class="card-2">
-      <li>
-        <img class="avatar" src="{{this.profilePictureURL}}">
-        <p class="name">{{this.firstName}} {{this.lastName}}</p>
-      </li>
+      <div class="user">
+        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+        <p>{{this.firstName}} {{this.lastName}}</p>
+      </div>
 
+      <span class="post">{{this.title}}</span>
       <span class="post">{{this.message}}</span>
 
       <li>
         <form method="post" action="/posts/like">
           <input type="hidden" name="post" value="{{this._id}}">
-          <button type="submit" value="">👍 {{this.likes.length}}</button>
+          <button class="button-4" type="submit">🤍{{this.likes.length}}</button>
         </form>
         <form method="post" action="/posts/delete">
           <input type="hidden" name="post" value="{{this._id}}">
-          <button type="submit" value="">Delete</button>
+          <button class="button-4" type="submit">Delete</button>
         </form>
         <a class="edit">Posted on: {{this.createdAt}}</a>
       </li>
