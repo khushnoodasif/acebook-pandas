@@ -9,7 +9,8 @@ const PostsController = {
 
       res.render("posts/index", {
         posts: posts.reverse(),
-        user: req.session.user
+        user: req.session.user,
+        //userFirstName: JSON.stringify(req.session.user.firstName)
       });
     });
   },
@@ -44,12 +45,18 @@ const PostsController = {
       if (err) {
         throw err;
       }
-      console.log('req body: ', req.body.comment)
-      console.log('req body post: ', req.body.post)
-      console.log('req.session.user.firstName: ', req.session.user.firstName)
-      res.status(201).redirect("/posts");
+    res.status(201).redirect("/posts");
     })
-  }
+  },
+
+  Delete: (req, res) => {
+    Post.deleteOne({ _id: req.body.postId }, (err) => {
+      if (err) {
+        throw err;
+      }
+      res.status(201).redirect("/posts");
+  });
+  },
 };
 
 module.exports = PostsController;
