@@ -24,10 +24,24 @@
   text-align: center;
 }
 
+.container-4 {
+  max-width: 75%;
+  margin: 0 auto;
+  margin-top: 5vh;
+  padding-bottom: -10%;
+}
+
 .card {
   background-color: #e8e8e8;
   border: 2px solid #393e46;
   padding: 1px;
+  border-radius: 30px;
+}
+
+.card-2 {
+  background-color: #e8e8e8;
+  border: 2px solid #393e46;
+  padding: 20px;
   border-radius: 30px;
 }
 
@@ -54,6 +68,30 @@ body {
 
 span .img-2{
   margin-bottom: 40px;
+}
+
+.avatar {
+  width: 5%;
+  height: 5%;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px #252525;
+}
+
+.avatar:hover {
+  box-shadow: 0 0 20px #7d0633;
+}
+
+.card-2 li {
+  list-style: none;
+  font-size: 1.2em;
+  text-align: right;
+}
+
+.card-2 li .edit {
+  color: #7d0633;
+  font-size: 1.2em;
 }
 
 .logo {
