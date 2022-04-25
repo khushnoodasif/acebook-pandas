@@ -4,7 +4,9 @@ const date = new Date
 var dateFormat = date.toDateString()
 
 const PostSchema = new mongoose.Schema({
+  title: String,
   message: String,
+  imageURL: String,
   createdAt: {
     type: String,
     default: dateFormat

@@ -30,9 +30,11 @@
         <p>{{this.firstName}} {{this.lastName}}</p>
       </div>
 
-      <span class="post">{{this.title}}</span>
-      <span class="post">{{this.message}}</span>
-      <span class="post">{{this.imageURL}}</span>
+      <ul class="post">
+      <span class="post-title">{{this.title}}</span>
+      <span class="post-message">{{this.message}}</span>
+      <span class="post-image">{{this.imageURL}}</span>
+      </ul>
 
       <li>
         <form method="post" action="/posts/like">

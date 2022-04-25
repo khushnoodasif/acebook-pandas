@@ -108,7 +108,8 @@ span .img-2 {
 .card-2 .post {
   display: block;
   color: #7d0633;
-  font-size: 3.5em;
+  font-size: 2.5em;
+  width: 60%;
 }
 
 .logo {
