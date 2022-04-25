@@ -95,7 +95,7 @@ span .img-2 {
 
 .card-2 li {
   list-style: none;
-  font-size: 1.2em;
+  font-size: 1.5em;
   text-align: right;
 }
 
@@ -103,16 +103,17 @@ span .img-2 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-size: 1.5em;
 }
 
 .card-2 .user p {
   margin-left: 10px;
 }
 
-.card-2 li .edit {
-  display: block;
+.card-2 .edit {
+  display: relative;
   color: #7d0633;
-  font-size: 1em;
+  margin-left: auto;
 }
 
 .card-2 .post {
