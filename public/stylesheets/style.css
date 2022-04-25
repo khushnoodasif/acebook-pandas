@@ -91,13 +91,19 @@ span .img-2{
 .card-2 li p {
   color: #7d0633;
   font-size: 1em;
-  margin-top: -2px;
+  margin-top: -1px;
 }
 
 .card-2 li .edit {
   display: block;
   color: #7d0633;
   font-size: 1em;
+}
+
+.card-2 .post {
+  display: block;
+  color: #7d0633;
+  font-size: 3.5em;
 }
 
 .logo {
