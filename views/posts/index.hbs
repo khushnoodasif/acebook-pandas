@@ -12,28 +12,39 @@
 
 <div class="container-2">
   <div class="card">
-    <h1>Posts</h1>
-    <ul class="posts">
-      {{#each posts}}
-      <li class="list-item">
-      <span><img src="{{this.profilePictureURL}}"></span>
-      <span>{{this.firstName}} {{this.lastName}}</span>
-      <span>{{this.message}}</span>
-      <span>Posted on: {{this.createdAt}}</span>
-      <span><form method="post" action="/posts/like">
-        <input type="hidden" name="post" value="{{this._id}}">
-        <input type="submit" value="👍 {{this.likes.length}}">
-      </form>
-      
-      </span></li>
-      {{/each}}
-    </ul>
+    <h1>POSTS</h1>
   </div>
 </div>
 
 <div class="container-2">
-<form action="/posts/new">
-  <input class="button" type="submit" value="New Post" />
+  <form action="/posts/new">
+    <input class="button" type="submit" value="New Post" />
 </div>
+
+
+<ul class="posts">
+  {{#each posts}}
+  <div class="container-4">
+    <div class="card-2">
+      <li>
+        <img class="avatar" src="{{this.profilePictureURL}}">
+      </li>
+      <span>{{this.firstName}} {{this.lastName}}</span>
+      <span>{{this.message}}</span>
+      <br>
+      <span>
+        <form method="post" action="/posts/like">
+          <input type="hidden" name="post" value="{{this._id}}">
+          <input type="submit" value="👍 {{this.likes.length}}">
+        </form>
+      </span>
+      <li>
+        <a class="edit">Posted on: {{this.createdAt}}</a>
+      </li>
+    </div>
+  </div>
+  {{/each}}
+</ul>
+
 
 <script src="/javascripts/dateFormat.js"></script>
