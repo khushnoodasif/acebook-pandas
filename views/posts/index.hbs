@@ -21,7 +21,6 @@
     <input class="button" type="submit" value="New Post" />
 </div>
 
-
 <ul class="posts">
   {{#each posts}}
   <div class="container-4">
@@ -41,10 +40,25 @@
       <li>
         <a class="edit">Posted on: {{this.createdAt}}</a>
       </li>
+      <form method="post" action="posts/comments/new">
+      <input type="hidden" name="post" value="{{this._id}}">
+      {{#if this.comments.length}}
+        <input type="text" name="comment", id="{{this._id}}" placeholder="comment...">
+        <input type="submit" value="Add Comment">
+      {{else}}
+        <input type="text" name="comment", id="{{this._id}}" placeholder="be the first to comment...">
+        <input type="submit" value="Add Comment">
+      {{/if}}
+      </form>
+      <ul>
+        {{#each this.comments}}
+        <li><span><img width= "30px" src="{{this.user.profilePictureURL}}"></span>
+        <span>{{this.user.firstName}} {{this.user.lastName}}</span>
+        <span>{{this.message}}</span>
+        </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
   {{/each}}
 </ul>
-
-
-<script src="/javascripts/dateFormat.js"></script>
