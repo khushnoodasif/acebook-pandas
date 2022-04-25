@@ -28,7 +28,6 @@
   max-width: 75%;
   margin: 0 auto;
   margin-top: 5vh;
-  padding-bottom: -10%;
 }
 
 .card {
@@ -89,9 +88,16 @@ span .img-2{
   text-align: right;
 }
 
-.card-2 li .edit {
+.card-2 li p {
   color: #7d0633;
-  font-size: 1.2em;
+  font-size: 1em;
+  margin-top: -2px;
+}
+
+.card-2 li .edit {
+  display: block;
+  color: #7d0633;
+  font-size: 1em;
 }
 
 .logo {
@@ -101,11 +107,11 @@ span .img-2{
   margin-bottom: -7%;
 }
 
-.logo:hover {
-  /* background: url(/images/acebook-purple.png) no-repeat; */
+/* .logo:hover {
+  background: url(/images/acebook-purple.png) no-repeat;
   width: 17.5%;
   color: #7d0633;
-}
+} */
 
 h1:hover {
   color: #7d0633;
@@ -122,20 +128,6 @@ a {
 .link {
   color: #7d0633;
   text-decoration: none;
-}
-
-footer img {
-  display: inline-block;
-  margin-left: 0.625em;
-  width: 5%;
-  text-align: center;
-}
-
-footer {
-  margin-top: 10%;
-  color: #eeeeee;
-  text-align: center;
-  font-size: 2rem;
 }
 
 .navMenu {
@@ -255,4 +247,18 @@ footer {
 .form-2 label {
   display: table-cell;
   font-size: 2em;
+}
+
+footer img {
+  display: inline-block;
+  margin-left: 0.625em;
+  width: 5%;
+  text-align: center;
+}
+
+footer {
+  margin-top: 10%;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 2rem;
 }
