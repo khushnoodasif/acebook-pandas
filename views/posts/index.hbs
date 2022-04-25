@@ -23,9 +23,18 @@
       <span><form method="post" action="/posts/like">
         <input type="hidden" name="post" value="{{this._id}}">
         <input type="submit" value="👍 {{this.likes.length}}">
+      </form></span>
+      <form method="post" action="posts/comments/new">
+      <input type="hidden" name="post" value="{{this._id}}">
+      {{#if this.comments.length}}
+        <input type="text" name="comment", id="{{this._id}}" placeholder="comment...">
+        <input type="submit" value="Add Comment">
+      {{else}}
+        <input type="text" name="comment", id="{{this._id}}" placeholder="be the first to comment...">
+        <input type="submit" value="Add Comment">
+      {{/if}}
       </form>
-      
-      </span></li>
+      </li>
       {{/each}}
     </ul>
   </div>

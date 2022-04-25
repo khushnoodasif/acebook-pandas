@@ -32,9 +32,20 @@ const PostsController = {
       if (err) {
         throw err;
       }
-
       res.status(201).redirect("/posts");
     });
+  },
+
+  addComment: (req, res) => {
+    Post.updateOne({ _id: req.body.post }, { $push: { comments: { message: req.body.comment } } }, (err) => {
+      if (err) {
+        throw err;
+      }
+      console.log('req body: ', req.body.comment)
+      console.log('req body post: ', req.body.post)
+      console.log('req.session.user.firstName: ', req.session.user.firstName)
+      res.status(201).redirect("/posts");
+    })
   }
 };
 
