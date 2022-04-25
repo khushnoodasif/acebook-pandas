@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const Handlebars = require("handlebars");
+const hbs = require("hbs");
 
 const homeRouter = require("./routes/home");
 const postsRouter = require("./routes/posts");
@@ -17,6 +17,56 @@ const app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
+
+//setting up helpers
+hbs.registerHelper('timeSince', (timestamp) => { {
+    if (typeof date !== 'object') {
+      timestamp = new Date(timestamp);
+    }
+  
+    var seconds = Math.floor((new Date() - timestamp) / 1000);
+    var intervalType;
+  
+    var interval = Math.floor(seconds / 31536000);
+    if (interval >= 1) {
+      intervalType = 'year';
+    } else {
+      interval = Math.floor(seconds / 2592000);
+      if (interval >= 1) {
+        intervalType = 'month';
+      } else {
+        interval = Math.floor(seconds / 86400);
+        if (interval >= 1) {
+          intervalType = 'day';
+        } else {
+          interval = Math.floor(seconds / 3600);
+          if (interval >= 1) {
+            intervalType = "hour";
+          } else {
+            interval = Math.floor(seconds / 60);
+            if (interval >= 1) {
+              intervalType = "minute";
+            } else {
+              interval = seconds;
+              intervalType = "second";
+            }
+          }
+        }
+      }
+    }
+  
+    if (interval > 1 || interval === 0) {
+      intervalType += 's';
+    }
+    return interval + ' ' + intervalType;
+  }
+})
+
+hbs.registerHelper('showDeleteButton', (userId, postUserId) => {
+  if(userId === postUserId) {
+    return `<button class="button-4" type="submit">Delete</button>`
+  }
+})
 
 app.use(logger("dev"));
 app.use(express.json());

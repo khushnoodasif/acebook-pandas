@@ -6,11 +6,9 @@ const PostsController = {
       if (err) {
         throw err;
       }
-
       res.render("posts/index", {
         posts: posts.reverse(),
         user: req.session.user,
-        //userFirstName: JSON.stringify(req.session.user.firstName)
       });
     });
   },
