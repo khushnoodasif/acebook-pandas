@@ -53,8 +53,8 @@ body {
 .img-2 {
   display: block;
   margin: 0 auto;
-  width: 40%;
-  height: 40%;
+  width: 200px;
+  height: 200px;
   background-color: #fff;
   border-radius: 50%;
   border: 1px solid #ccc;
