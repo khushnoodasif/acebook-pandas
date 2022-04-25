@@ -19,6 +19,7 @@
 <div class="container-2">
   <form action="/posts/new">
     <input class="button" type="submit" value="New Post" />
+    </form>
 </div>
 
 <div>
@@ -33,7 +34,9 @@
       <ul class="post">
       <span class="post-title">{{this.title}}</span>
       <span class="post-message">{{this.message}}</span>
-      <span class="img-3"><img src="{{this.imageURL}}"></span>
+      {{#if this.imageURL}}
+         <span class="img-3"><img src="{{this.imageURL}}"></span>
+      {{/if}}
       </ul>
 
       <li>
@@ -41,10 +44,12 @@
           <input type="hidden" name="post" value="{{this._id}}">
           <button class="button-4" type="submit">🤍{{this.likes.length}}</button>
         </form>
+      
         <form method="post" action="/posts/delete">
-          <input type="hidden" name="post" value="{{this._id}}">
+          <input type="hidden" name="postId" value="{{this._id}}">
           <button class="button-4" type="submit">Delete</button>
         </form>
+
         <a class="edit">Posted on: {{this.createdAt}}</a>
       </li>
       <form method="post" action="posts/comments/new">
