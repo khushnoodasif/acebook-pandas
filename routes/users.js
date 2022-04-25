@@ -3,10 +3,18 @@ const router = express.Router();
 
 const UsersController = require("../controllers/users");
 
+const sessionChecker = (req, res, next) => {
+  if (!req.session.user && !req.cookies.user_sid) {
+    res.redirect("/sessions/new");
+  } else {
+    next();
+  }
+};
+
 router.get("/new", UsersController.New);
 router.post("/", UsersController.Create);
-router.post("/profile", UsersController.Update);
-router.get("/profile", UsersController.Profile);
+router.post("/profile", sessionChecker, UsersController.Update);
+router.get("/profile", sessionChecker, UsersController.Profile);
 router.get("/delete", UsersController.Remove);
 router.post("/delete", UsersController.Delete);
 router.get("/", UsersController.Logout);
