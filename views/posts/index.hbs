@@ -37,7 +37,7 @@
 
 <div class="container-2">
   <div class="card">
-    <h1>POSTS</h1>
+    <h1>ALL POSTS</h1>
   </div>
 </div>
 
@@ -79,14 +79,17 @@
         {{/if}}
       </form>
 
-      <ul>
+      <div class="comments">
+      <li>
         {{#each this.comments}}
-        <li><span><img width="30px" src="{{this.user.profilePictureURL}}"></span>
+        <li>
+          <p><img class="avatar" src="{{this.user.profilePictureURL}}"></p>
           <span>{{this.user.firstName}} {{this.user.lastName}}: </span>
           <span>{{this.message}}</span>
         </li>
         {{/each}}
-      </ul>
+      </li>
+      </div>
 
     </div>
 
