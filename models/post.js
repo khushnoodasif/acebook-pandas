@@ -15,7 +15,9 @@ var dateFormat = date.toDateString()
 // });
 
 const PostSchema = new mongoose.Schema({
+  title: String,
   message: String,
+  imageURL: String,
   timestamp: { type: Date, default: new Date() },
   createdAt: {
     type: String,

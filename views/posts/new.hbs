@@ -19,14 +19,18 @@
 <div class="container-2">
   <div class="card">
     <form class="form-1" id="new-post-form" action="/posts" method="post">
-    <li>
-      <label for="name">Name: </label>
-      <input class="button" id="name" type="text" name="name" value="">
-    </li>
-    <li>
-      <label for="message">Message: </label>
-      <input class="button-3" id="message" type="text" name="message" value="">
-    </li>
+      <li>
+        <label for="title">Title: </label>
+        <input class="button" id="title" type="text" name="title">
+      </li>
+      <li>
+        <label for="message">Message: </label>
+        <input class="button-3" id="message" type="text" name="message">
+      </li>
+      <li>
+        <label for="imageURL">ImageURL: </label>
+        <input class="button" id="imageURL" type="text" name="imageURL">
+      </li>
       <input type="hidden" name="user_id" value="{{user._id}}">
       <input type="hidden" name="firstName" value="{{user.firstName}}">
       <input type="hidden" name="lastName" value="{{user.lastName}}">

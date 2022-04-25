@@ -21,23 +21,30 @@
     <input class="button" type="submit" value="New Post" />
 </div>
 
-<ul class="posts">
+<div>
   {{#each posts}}
   <div class="container-4">
     <div class="card-2">
+      <div class="user">
+        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+        <p>{{this.firstName}} {{this.lastName}}</p>
+      </div>
+
+      <ul class="post">
+      <span class="post-title">{{this.title}}</span>
+      <span class="post-message">{{this.message}}</span>
+      <span class="post-image">{{this.imageURL}}</span>
+      </ul>
+
       <li>
-        <img class="avatar" src="{{this.profilePictureURL}}">
-      </li>
-      <span>{{this.firstName}} {{this.lastName}}</span>
-      <span>{{this.message}}</span>
-      <br>
-      <span>
         <form method="post" action="/posts/like">
           <input type="hidden" name="post" value="{{this._id}}">
-          <input type="submit" value="👍 {{this.likes.length}}">
+          <button class="button-4" type="submit">🤍{{this.likes.length}}</button>
         </form>
-      </span>
-      <li>
+        <form method="post" action="/posts/delete">
+          <input type="hidden" name="post" value="{{this._id}}">
+          <button class="button-4" type="submit">Delete</button>
+        </form>
         <a class="edit">Posted on: {{this.createdAt}}</a>
       </li>
       <form method="post" action="posts/comments/new">
@@ -61,4 +68,5 @@
     </div>
   </div>
   {{/each}}
-</ul>
+</div>
+
