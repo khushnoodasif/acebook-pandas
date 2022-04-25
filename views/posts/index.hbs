@@ -48,7 +48,7 @@
       <div class="user">
         <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
         <p>{{this.firstName}} {{this.lastName}}</p>
-        <a class="edit">Posted on: {{this.createdAt}}</a>
+        <a class="edit">Posted {{timeSince this.timestamp}} ago</a>
       </div>
 
       <hr>
@@ -67,7 +67,7 @@
         </form>
         <form method="post" action="/posts/delete">
           <input type="hidden" name="postId" value="{{this._id}}">
-          <button class="button-4" type="submit">Delete</button>
+          {{{showDeleteButton ../user._id this.user_id}}}
         </form>
       </li>
 
@@ -97,3 +97,5 @@
   </div>
   {{/each}}
 </div>
+
+<script src="javascripts/posts/index.js"></script>
