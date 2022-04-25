@@ -37,7 +37,10 @@ const PostsController = {
   },
 
   addComment: (req, res) => {
-    Post.updateOne({ _id: req.body.post }, { $push: { comments: { message: req.body.comment } } }, (err) => {
+    Post.updateOne({ _id: req.body.post }, { $push: { comments: { 
+      message: req.body.comment,
+      user: req.session.user
+    } } }, (err) => {
       if (err) {
         throw err;
       }

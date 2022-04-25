@@ -34,6 +34,15 @@
         <input type="submit" value="Add Comment">
       {{/if}}
       </form>
+      <ul>
+        {{#each this.comments}}
+        <li><span><img width= "30px" src="{{this.user.profilePictureURL}}"></span>
+        <span>{{this.user.firstName}} {{this.user.lastName}}</span>
+        <span>{{this.message}}</span>
+        </li>
+        {{/each}}
+      </ul>
+        
       </li>
       {{/each}}
     </ul>
