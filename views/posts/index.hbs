@@ -51,7 +51,8 @@
         <a class="edit">Posted on: {{this.createdAt}}</a>
       </div>
 
-
+      <hr>
+      
       <ul class="post">
         <span class="post-message">{{this.message}}</span>
         <span class="img"><img src="{{this.imageURL}}"></span>
@@ -68,6 +69,7 @@
         </form>
       </li>
 
+
       <form method="post" action="posts/comments/new">
         <input type="hidden" name="post" value="{{this._id}}">
         {{#if this.comments.length}}
@@ -79,21 +81,18 @@
         {{/if}}
       </form>
 
-      <div class="comments">
-      <li>
+      <hr>
+
+      <div class="user">
         {{#each this.comments}}
-        <li>
-          <p><img class="avatar" src="{{this.user.profilePictureURL}}"></p>
-          <span>{{this.user.firstName}} {{this.user.lastName}}: </span>
-          <span>{{this.message}}</span>
-        </li>
+        <p>
+          <a href="/users/profile"><img class="avatar" src="{{this.user.profilePictureURL}}"></a>
+          <p>{{this.user.firstName}} {{this.user.lastName}}: {{this.message}}</p>
+        </p>
         {{/each}}
-      </li>
       </div>
 
     </div>
-
-
   </div>
   {{/each}}
 </div>
