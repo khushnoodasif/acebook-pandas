@@ -45,11 +45,6 @@ const UsersController = {
       res.redirect("/users/delete");
     });
   },
-
-  Logout: (req, res) => {
-    req.session.destroy();
-    res.redirect("/");
-  }
 };
 
 module.exports = UsersController;

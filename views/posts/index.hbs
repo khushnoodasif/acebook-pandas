@@ -5,7 +5,7 @@
       <a href="/posts">Posts</a>
       <a href="/posts/new">Add Post</a>
       <a href="/users/profile">Profile</a>
-      <a href="/">Log Out</a>
+      <a href="/sessions/destroy">Log Out</a>
     </nav>
   </div>
 </div>
@@ -33,7 +33,7 @@
       <ul class="post">
       <span class="post-title">{{this.title}}</span>
       <span class="post-message">{{this.message}}</span>
-      <span class="post-image">{{this.imageURL}}</span>
+      <span class="img-3"><img src="{{this.imageURL}}"></span>
       </ul>
 
       <li>
@@ -53,8 +53,8 @@
         <input type="text" name="comment", id="{{this._id}}" placeholder="comment...">
         <input type="submit" value="Add Comment">
       {{else}}
-        <input type="text" name="comment", id="{{this._id}}" placeholder="be the first to comment...">
-        <input type="submit" value="Add Comment">
+        <input class="button" type="text" name="comment", id="{{this._id}}" placeholder="Be the first to comment...">
+        <input class="button" type="submit" value="Add Comment">
       {{/if}}
       </form>
       <ul>

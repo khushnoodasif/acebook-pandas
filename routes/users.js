@@ -17,6 +17,5 @@ router.post("/profile", sessionChecker, UsersController.Update);
 router.get("/profile", sessionChecker, UsersController.Profile);
 router.get("/delete", UsersController.Remove);
 router.post("/delete", UsersController.Delete);
-router.get("/", UsersController.Logout);
 
 module.exports = router;

@@ -61,6 +61,16 @@ body {
   box-shadow: 0 0 10px #252525;
 }
 
+.img-3 {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px #252525;
+}
+
 .img-2:hover {
   box-shadow: 0 0 20px #7d0633;
 }
