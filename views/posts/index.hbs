@@ -50,14 +50,14 @@
         <p>{{this.firstName}} {{this.lastName}}</p>
         <a class="edit">Posted on: {{this.createdAt}}</a>
       </div>
-      
+
       <hr>
-      
+
       <ul class="post">
         <span class="post-message">{{this.message}}</span>
-      {{#if this.imageURL}}
-         <span class="img-3"><img src="{{this.imageURL}}"></span>
-      {{/if}}
+        {{#if this.imageURL}}
+        <span class="img"><img src="{{this.imageURL}}"></span>
+        {{/if}}
       </ul>
 
       <li>
@@ -65,11 +65,11 @@
           <input type="hidden" name="post" value="{{this._id}}">
           <button class="button-4" type="submit">🤍{{this.likes.length}}</button>
         </form>
-      
         <form method="post" action="/posts/delete">
           <input type="hidden" name="postId" value="{{this._id}}">
           <button class="button-4" type="submit">Delete</button>
         </form>
+      </li>
 
       <form method="post" action="posts/comments/new">
         <input type="hidden" name="post" value="{{this._id}}">
