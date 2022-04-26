@@ -1,7 +1,18 @@
-const { db } = require("../models/user");
 const User = require("../models/user");
 
 const UsersController = {
+  Index: (req, res) => {
+    User.find((err, users) => {
+      if (err) {
+        throw err;
+      }
+      res.render("users/index", {
+        users: users,
+        currentUser: req.session.user,
+      });
+    });
+  },
+
   New: (req, res) => {
     res.render("users/new", {});
   },

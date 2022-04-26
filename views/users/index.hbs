@@ -1,0 +1,58 @@
+<div class="container-3">
+  <div class="card">
+    <nav class="navMenu">
+      <a href="/">Home</a>
+      <a href="/users">Users</a>
+      <a href="/posts">Posts</a>
+      <a href="/users/profile">Profile</a>
+      <a href="/sessions/destroy">Log Out</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card">
+    <h1>Maybe a search or filter function here</h1>
+  </div>
+</div>
+
+<div>
+  {{#each users}}
+  <div class="container-4">
+    <div class="card-2">
+      <div class="user">
+        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+        <p>{{this.firstName}} {{this.lastName}}</p>
+      </div>
+
+      <hr>
+
+      <ul class="post">
+        <span class="post-message">{{this.message}}</span>
+        <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
+      </ul>
+
+      <li>
+        <form method="post" action="/users/friend/new">
+          <input type="hidden" name="postId" value="{{this._id}}">
+          <input type="submit" class="button" value="Add Friend">
+        </form>
+      </li>
+
+      <hr>
+
+      <div class="user">
+        {{#each this.comments}}
+        <p>
+          <a href="/users/profile"><img class="avatar" src="{{this.user.profilePictureURL}}"></a>
+          <p>{{this.user.firstName}} {{this.user.lastName}}: {{this.message}}</p>
+        </p>
+        {{/each}}
+      </div>
+
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<script src="javascripts/posts/index.js"></script>

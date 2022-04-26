@@ -64,7 +64,7 @@ hbs.registerHelper('timeSince', (timestamp) => { {
 
 hbs.registerHelper('showDeleteButton', (userId, postUserId) => {
   if(userId === postUserId) {
-    return `<button class="button-4" type="submit">Delete</button>`
+    return `<button class="button" type="submit">Delete</button>`
   }
 })
 
