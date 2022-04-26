@@ -31,30 +31,11 @@
         <span class="post-message">{{this.message}}</span>
         <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
       </ul>
-
       <li>
-        <form method="post" action="/users/requestfriend">
-          <input type="hidden" name="id" value="{{this._id}}">
-          <input type="hidden" name="firstName" value="{{this.firstName}}">
-          <input type="hidden" name="lastName" value="{{this.lastName}}">
-          <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
-          <input type="hidden" name="email" value="{{this.email}}">
-          <input type="hidden" name="_method" value="put">
-          <input type="submit" class="button" value="Add Friend">
-        </form>
+        {{{showRequestFriendButton ../currentUser._id this._id}}}
       </li>
 
       <hr>
-
-      <div class="user">
-        {{#each this.comments}}
-        <p>
-          <a href="/users/profile"><img class="avatar" src="{{this.user.profilePictureURL}}"></a>
-          <p>{{this.user.firstName}} {{this.user.lastName}}: {{this.message}}</p>
-        </p>
-        {{/each}}
-      </div>
-
     </div>
   </div>
   {{/each}}

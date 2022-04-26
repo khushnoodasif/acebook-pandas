@@ -34,8 +34,6 @@ const UsersController = {
   },
 
   RequestFriend: (req, res) => {
-
-    //find a user by req.body.id and add it to the req.session.user friendRequests array
     User.findById(req.body.id, (err, user) => {
       if (err) {
         throw err;
