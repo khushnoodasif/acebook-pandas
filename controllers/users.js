@@ -13,13 +13,31 @@ const UsersController = {
   },
 
   Create: (req, res) => {
-    const user = new User(req.body);
-    user.save((err) => {
+    const newUser = new User(req.body);
+    
+
+    User.findOne({ email: req.body.email }, (err, existingUser) => {
       if (err) {
         throw err;
       }
-      res.status(201).redirect("/posts");
-    });
+      if (existingUser) {
+        console.log("error", "Account with that email address already exists");
+        return res.redirect("/users/new");
+      }
+          if (newUser.email == "") {
+            res.redirect("/users/new");
+          } 
+          else if (newUser.password == "") {
+            res.redirect("/users/new");
+          } else {
+            newUser.save((err) => {
+              if (err) {
+                throw err;
+              }
+              res.status(201).redirect("/posts");
+            })
+          }
+        })
   },
 
   Remove: (req, res) => {
