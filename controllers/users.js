@@ -33,6 +33,23 @@ const UsersController = {
     });
   },
 
+  RequestFriend: (req, res) => {
+
+    //find a user by req.body.id and add it to the req.session.user friendRequests array
+    User.findById(req.body.id, (err, user) => {
+      if (err) {
+        throw err;
+      }
+      req.session.user.friendRequests.push(user);
+      User.updateOne({ _id: req.session.user._id }, { $addToSet: { friendRequests: user } }, (err) => {
+        if (err) {
+          throw err;
+        }
+      })
+      res.redirect("/users");
+    })
+  },
+
   Remove: (req, res) => {
     res.render("users/delete", {
       user: req.session.user,
@@ -40,7 +57,7 @@ const UsersController = {
   },
 
   Update: (req, res) => {
-    User.findByIdAndUpdate(req.session.user._id, req.body, (err, user) => {
+    User.findByIdAndUpdate(req.session.user._id, req.body, (err) => {
       if (err) {
         throw err;
       }

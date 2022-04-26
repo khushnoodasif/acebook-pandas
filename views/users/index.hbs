@@ -33,8 +33,13 @@
       </ul>
 
       <li>
-        <form method="post" action="/users/friend/new">
-          <input type="hidden" name="postId" value="{{this._id}}">
+        <form method="post" action="/users/requestfriend">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input type="hidden" name="firstName" value="{{this.firstName}}">
+          <input type="hidden" name="lastName" value="{{this.lastName}}">
+          <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
+          <input type="hidden" name="email" value="{{this.email}}">
+          <input type="hidden" name="_method" value="put">
           <input type="submit" class="button" value="Add Friend">
         </form>
       </li>
@@ -54,5 +59,3 @@
   </div>
   {{/each}}
 </div>
-
-<script src="javascripts/posts/index.js"></script>
