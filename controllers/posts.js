@@ -27,6 +27,7 @@ const PostsController = {
 
   Create: (req, res) => {
     const post = new Post(req.body);
+    post.timestamp = Date.now()
     post.save((err) => {
       if (err) {
         throw err;

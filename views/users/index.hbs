@@ -1,0 +1,52 @@
+<div class="container-3">
+  <div class="card">
+    <nav class="navMenu">
+      <a href="/">Home</a>
+      <a href="/users">Users</a>
+      <a href="/posts">Posts</a>
+      <a href="/users/profile">Profile</a>
+      <a href="/sessions/destroy">Log Out</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card">
+    <h1>Maybe a search or filter function here</h1>
+  </div>
+</div>
+
+<div>
+  {{#each users}}
+  <div class="container-4">
+    <div class="card-2">
+      <div class="user">
+        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+        <p>{{this.firstName}} {{this.lastName}}</p>
+      </div>
+
+      <hr>
+
+      <ul class="post">
+        <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
+      </ul>
+      <li>
+        <form method="post" action="/users/requestfriend">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input type="hidden" name="firstName" value="{{this.firstName}}">
+          <input type="hidden" name="lastName" value="{{this.lastName}}">
+          <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
+          <input type="hidden" name="email" value="{{this.email}}">
+          <input type="hidden" name="_method" value="put">
+          <input type="submit" class="button" value="Add Friend">
+        </form>
+        <form method="get" action="/users/profile">
+          <input type="submit" class="button" value="View Your Profile">
+        </form>
+      </li>
+
+      <hr>
+    </div>
+  </div>
+  {{/each}}
+</div>

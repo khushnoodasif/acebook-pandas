@@ -64,9 +64,16 @@ hbs.registerHelper('timeSince', (timestamp) => { {
 
 hbs.registerHelper('showDeleteButton', (userId, postUserId) => {
   if(userId === postUserId) {
-    return `<button class="button-4" type="submit">Delete</button>`
+    return `<button class="button" type="submit">Delete</button>`
   }
 })
+
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 app.use(logger("dev"));
 app.use(express.json());

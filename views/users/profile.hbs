@@ -50,6 +50,35 @@
   </div>
 </div>
 
+{{#each user.friendRequests}}
+  <div class="container-4">
+    <div class="card-2">
+      <div class="user">
+        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+        <p>{{this.firstName}} {{this.lastName}}</p>
+      </div>
+
+      <hr>
+
+      <ul class="post">
+        <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
+      </ul>
+      <li>
+        <form method="post" action="./friend/new">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Accept">
+        </form>
+        <form method="post" action="./friendrequest/delete">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input class="button-2" type="submit" value="Decline">
+        </form>
+      </li>
+
+      <hr>
+    </div>
+  </div>
+  {{/each}}
+
 <div class="container-2">
   <div class="card">
     <form class="form-1" id="user-delete" action="/users/delete" method="post">

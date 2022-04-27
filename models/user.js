@@ -5,7 +5,15 @@ const UserSchema = new mongoose.Schema({
   password: String,
   firstName: String,
   lastName: String,
-  profilePictureURL: String
+  profilePictureURL: String,
+  friendRequests: [{
+    type: mongoose.Schema.Types.Object,
+    ref: "User",
+  }],
+  friends: [{
+    type: mongoose.Schema.Types.Object,
+    ref: "User",
+  }],
 });
 
 const User = mongoose.model("User", UserSchema);

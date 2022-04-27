@@ -50,6 +50,11 @@ body {
   background-color: #252525;
 }
 
+.img-profile-list {
+  display: block;
+  max-width: 30%;
+}
+
 .img-2 {
   display: block;
   margin: 0 auto;
@@ -191,6 +196,7 @@ a {
   text-align: center;
   transition: all 0.2s;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -211,6 +217,7 @@ a {
   text-align: center;
   transition: all 0.2s;
   margin: 10px 50px;
+  cursor: pointer;
 }
 
 .button-2:hover {
@@ -232,6 +239,7 @@ a {
   margin: 10px 50px;
   width: 75%;
   height: 250px;
+  cursor: pointer;
 }
 
 .button-3:hover {
@@ -254,6 +262,7 @@ a {
   transition: all 0.2s;
   margin-left: 10px;
   width: 8%;
+  cursor: pointer;
 }
 
 .button-4:hover {
