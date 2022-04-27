@@ -51,15 +51,13 @@ const UsersController = {
   DeclineRequestFriend: (req, res) => {
     User.findById(req.body.id, (err, user) => {
       const sessionUser = req.session.user;
-      const { friendRequests: sessionRequests } = sessionUser;
-      const filteredSessionRequests = sessionRequests.filter(request => { request == user} )
+      const { friendRequests } = sessionUser;
+      const filteredSessionRequests = friendRequests.filter(request => { request._id == user._id} )
 
       sessionUser.friendRequests = filteredSessionRequests;
-      
-      User.findByIdAndUpdate( sessionUser._id, sessionUser, (err) => {
-        if (err) {
-          throw err;
-          }
+
+      User.findByIdAndUpdate( req.session.user._id, sessionUser, (err) => {
+        if (err) { throw err }
         })
     res.redirect("/users/profile");
       }
