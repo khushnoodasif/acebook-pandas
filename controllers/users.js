@@ -94,6 +94,7 @@ const UsersController = {
       if (err) {
         throw err;
       }
+      req.session.user = req.body;
       res.redirect("/users/profile");
     });
   },
