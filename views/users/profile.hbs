@@ -61,11 +61,17 @@
       <hr>
 
       <ul class="post">
-        <span class="post-message">{{this.message}}</span>
         <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
       </ul>
       <li>
-        Accept or deny button here
+        <form method="post" action="./friend/new">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Accept">
+        </form>
+        <form method="post" action="./friendrequest/delete">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input class="button-2" type="submit" value="Decline">
+        </form>
       </li>
 
       <hr>

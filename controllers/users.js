@@ -38,14 +38,33 @@ const UsersController = {
       if (err) {
         throw err;
       }
-      req.session.user.friendRequests.push(user);
-      User.updateOne({ _id: req.session.user._id }, { $addToSet: { friendRequests: user } }, (err) => {
+      user.friendRequests.push(req.session.user);
+      User.updateOne({ _id: user }, { $addToSet: { friendRequests: req.session.user } }, (err) => {
         if (err) {
           throw err;
         }
       })
       res.redirect("/users");
     })
+  },
+
+  CreateFriend: (req, res) => {
+    User.findById(req.body.id, (err, user) => {
+      req.session.user.friends.push(user)
+
+      for(var i = 0; i < req.session.user.friendRequests.length; i++) {
+        if(req.session.user.friendRequests[i]._id == user._id) {
+          req.session.user.friendRequests.splice(i, 1);
+        }
+      }
+      
+      User.findByIdAndUpdate(req.session.user._id, req.session.user, (err) => {
+        if (err) {
+          throw err;
+          }
+        })
+      res.redirect("/users/profile")
+   })
   },
 
   Remove: (req, res) => {

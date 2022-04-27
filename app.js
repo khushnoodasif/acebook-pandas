@@ -68,23 +68,12 @@ hbs.registerHelper('showDeleteButton', (userId, postUserId) => {
   }
 })
 
-hbs.registerHelper('showRequestFriendButton', (userId, friendId) => {
-  if(userId == friendId) {
-    return `<form method="get" action="/users/profile">
-              <input type="submit" class="button" value="View Your Profile">
-            </form>`
-  } else {
-    return `<form method="post" action="/users/requestfriend">
-    <input type="hidden" name="id" value="{{this._id}}">
-    <input type="hidden" name="firstName" value="{{this.firstName}}">
-    <input type="hidden" name="lastName" value="{{this.lastName}}">
-    <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
-    <input type="hidden" name="email" value="{{this.email}}">
-    <input type="hidden" name="_method" value="put">
-    <input type="submit" class="button" value="Add Friend">
-  </form>`
-}
-})
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 app.use(logger("dev"));
 app.use(express.json());

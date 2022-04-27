@@ -14,6 +14,7 @@ const sessionChecker = (req, res, next) => {
 router.get("/", sessionChecker, UsersController.Index);
 router.get("/new", UsersController.New);
 router.post("/requestfriend", UsersController.RequestFriend);
+router.post("/friend/new", UsersController.CreateFriend);
 router.post("/", UsersController.Create);
 router.post("/profile", sessionChecker, UsersController.Update);
 router.get("/profile", sessionChecker, UsersController.Profile);
