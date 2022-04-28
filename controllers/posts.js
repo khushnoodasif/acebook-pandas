@@ -33,7 +33,7 @@ const PostsController = {
   Create: (req, res) => {
     const post = new Post(req.body);
     if (post.message == "") {
-      req.flash("error", "Cannot submit a blank post");
+      req.flash("error", "Cannot Submit a Blank Post");
       res.redirect("/posts");
     } else {
       post.timestamp = Date.now();
@@ -48,7 +48,7 @@ const PostsController = {
 
   addComment: (req, res) => {
     if (req.body.comment == "") {
-      req.flash("errorComment", "Cannot submit a blank comment");
+      req.flash("errorComment", "Cannot Submit a Blank Comment");
       res.redirect("/posts");
     } else {
     Post.updateOne(
