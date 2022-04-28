@@ -17,35 +17,52 @@ const PostsController = {
   },
 
   Like: (req, res) => {
-    Post.updateOne({ _id: req.body.post }, { $addToSet: { likes: req.session.user } }, (err) => {
-      if (err) {
-        throw err;
+    Post.updateOne(
+      { _id: req.body.post },
+      { $addToSet: { likes: req.session.user } },
+      (err) => {
+        if (err) {
+          throw err;
+        }
+        res.status(201).redirect("/posts");
       }
-      res.status(201).redirect("/posts");
-    });
+    );
   },
 
   Create: (req, res) => {
     const post = new Post(req.body);
-    post.timestamp = Date.now()
-    post.save((err) => {
-      if (err) {
-        throw err;
-      }
-      res.status(201).redirect("/posts");
-    });
+    if (post.message == "") {
+      req.flash("error", "Cannot submit a blank post");
+      res.redirect("/posts");
+    } else {
+      post.timestamp = Date.now();
+      post.save((err) => {
+        if (err) {
+          throw err;
+        }
+        res.status(201).redirect("/posts");
+      });
+    }
   },
 
   addComment: (req, res) => {
-    Post.updateOne({ _id: req.body.post }, { $push: { comments: { 
-      message: req.body.comment,
-      user: req.session.user
-    } } }, (err) => {
-      if (err) {
-        throw err;
+    Post.updateOne(
+      { _id: req.body.post },
+      {
+        $push: {
+          comments: {
+            message: req.body.comment,
+            user: req.session.user,
+          },
+        },
+      },
+      (err) => {
+        if (err) {
+          throw err;
+        }
+        res.status(201).redirect("/posts");
       }
-    res.status(201).redirect("/posts");
-    })
+    );
   },
 
   Delete: (req, res) => {
@@ -54,7 +71,7 @@ const PostsController = {
         throw err;
       }
       res.status(201).redirect("/posts");
-  });
+    });
   },
 };
 
