@@ -125,6 +125,10 @@ span .img-2 {
   box-shadow: 0 0 10px #252525;
 }
 
+.avatar-2:hover {
+  box-shadow: 0 0 20px #7d0633;
+}
+
 .card-2 li {
   list-style: none;
   font-size: 1.5em;

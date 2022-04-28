@@ -2,7 +2,13 @@
   <div class="card">
     <nav class="navMenu">
       <a href="/users">Find Friends</a>
-      <a href="/users/friends">Friends</a>
+      <a href="/users/friends">Friends 
+      {{#if user}}
+      {{#if user.friends.length}}
+      [{{user.friends.length}}]
+      {{/if}}
+      {{/if}}
+      </a>
       <a href="/posts">Posts</a>
       <a href="/users/profile">Profile</a>
       <a href="/sessions/destroy">Log Out</a>
@@ -18,6 +24,7 @@
     <div class="user-2">
       <a href="/users/profile"><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
       <p>{{this.firstName}} {{this.lastName}}</p>
+      <hr>
       <p>
         <form method="post" action="./friend/new">
           <input type="hidden" name="id" value="{{this._id}}">
@@ -35,7 +42,26 @@
 </div>
 
 <div class="container-2">
-  <div class="card">
+  <div class="card-2">
     <h1>FRIENDS</h1>
+    <hr>
+    {{#each user.friends}}
+    <div class="user-2">
+      <a href="/users/profile"><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
+      <p>{{this.firstName}} {{this.lastName}}</p>
+      <hr>
+      <p>
+        <form method="post" action="/users/profile">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="View Profile">
+        </form>
+        <form method="post" action="./requestfriend/decline">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Remove Friend">
+        </form>
+      </p>
+    </div>
+    <hr>
+    {{/each}}
   </div>
 </div>
