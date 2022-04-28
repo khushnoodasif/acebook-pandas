@@ -7,7 +7,6 @@ const UserSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   dob: String,
-  // dob: { $dateToString: { format: "%Y-%m-%d" } },
   profilePictureURL: String,
   friendRequests: [{
     type: mongoose.Schema.Types.Object,

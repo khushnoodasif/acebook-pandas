@@ -32,23 +32,27 @@ const UsersController = {
         throw err;
       }
       if (existingUser) {
-        req.flash("error", "Account with that email address already exists");
+        req.flash("error", "Account with that email address already exists.");
         return res.redirect("/users/new");
       }
           if (newUser.email == "") {
-            req.flash('error', 'Please enter an e-mail');
+            req.flash('error', 'Please enter an e-mail.');
             res.redirect("/users/new");
           } 
           else if (newUser.password == "") {
-            req.flash('error', 'Please enter a password')
+            req.flash('error', 'Please enter a password.')
             res.redirect("/users/new");
           }
           else if (newUser.firstName == "") {
-            req.flash('error', 'Please enter a first name')
+            req.flash('error', 'Please enter a first name.')
             res.redirect("/users/new")
           } 
           else if (newUser.lastName == "") {
-            req.flash('error', 'Please enter a last name')
+            req.flash('error', 'Please enter a last name.')
+            res.redirect("/users/new")
+          } 
+          else if (newUser.dob == "") {
+            req.flash('error', 'Please enter a date of birth.')
             res.redirect("/users/new")
           } 
           else {
