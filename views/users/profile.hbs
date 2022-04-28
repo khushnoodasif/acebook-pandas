@@ -10,14 +10,11 @@
   </div>
 </div>
 
-<div class="container-2">
-  <div class="card">
-    <h1>USER PROFILE</h1>
-  </div>
-</div>
 
 <div class="container-2">
   <div class="card">
+    <h1>USER PROFILE</h1>
+    <hr>
     <form class="form-1" id="user-profile" action="/users/profile" method="post">
       <span>
         <img class="img-2" id="profilePictureURL" src="{{user.profilePictureURL}}" />
@@ -63,6 +60,8 @@
 
 <div class="container-2">
   <div class="card">
+    <h1>ABOUT ME</h1>
+    <hr>
     <form class="form-1" id="user-profile" action="/users/profile" method="post">
       <li>
         <label for="bio">Bio:</label>
@@ -90,27 +89,28 @@
   </div>
 </div>
 
-<div>
-  {{#each user.friendRequests}}
-  <div class="container-4">
-    <div class="card-2">
-      <div class="user-2">
-        <a href="/users/profile"><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
-        <p>{{this.firstName}} {{this.lastName}}</p>
-        <p>
-          <form method="post" action="./friend/new">
-            <input type="hidden" name="id" value="{{this._id}}">
-            <input class="button-2" type="submit" value="Accept">
-          </form>
-          <form method="post" action="./requestfriend/decline">
-            <input type="hidden" name="id" value="{{this._id}}">
-            <input class="button-2" type="submit" value="Decline">
-          </form>
-        </p>
-      </div>
+<div class="container-2">
+  <div class="card-2">
+    <h1>FRIEND REQUESTS</h1>
+    <hr>
+    {{#each user.friendRequests}}
+    <div class="user-2">
+      <a href="/users/profile"><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
+      <p>{{this.firstName}} {{this.lastName}}</p>
+      <p>
+        <form method="post" action="./friend/new">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Accept">
+        </form>
+        <form method="post" action="./requestfriend/decline">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Decline">
+        </form>
+      </p>
     </div>
+    <hr>
+    {{/each}}
   </div>
-  {{/each}}
 </div>
 
 <div class="container-2">
