@@ -2,7 +2,7 @@
   <div class="card">
     <nav class="navMenu">
       <a href="/users">Find Friends</a>
-      <a href="/users">My Friends</a>
+      <a href="/users/friends">Friends</a>
       <a href="/posts">Posts</a>
       <a href="/users/profile">Profile</a>
       <a href="/sessions/destroy">Log Out</a>
@@ -75,10 +75,10 @@
       <form method="post" action="posts/comments/new">
         <input type="hidden" name="post" value="{{this._id}}">
         {{#if this.comments.length}}
-        <input class="button" type="text" name="comment" , id="{{this._id}}" placeholder="Make a Comment...">
+        <input class="button" type="text" name="comment" , id="{{this._id}}" placeholder="Make a Comment..." size="50">
         <input class="button" type="submit" value="Add Comment">
         {{else}}
-        <input class="button" type="text" name="comment" , id="{{this._id}}" placeholder="Be the first to comment...">
+        <input class="button" type="text" name="comment" , id="{{this._id}}" placeholder="Be the first to comment..." size="50">
         <input class="button" type="submit" value="Add Comment">
         {{/if}}
       </form>

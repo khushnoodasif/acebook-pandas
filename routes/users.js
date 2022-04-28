@@ -19,6 +19,7 @@ router.post("/requestfriend/decline", UsersController.DeclineRequestFriend);
 router.post("/", UsersController.Create);
 router.post("/profile", sessionChecker, UsersController.Update);
 router.get("/profile", sessionChecker, UsersController.Profile);
+router.get("/friends", UsersController.Friends);
 router.get("/delete", UsersController.Remove);
 router.post("/delete", UsersController.Delete);
 

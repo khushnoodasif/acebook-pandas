@@ -24,6 +24,12 @@ const UsersController = {
     });
   },
 
+  Friends: (req, res) => {
+    res.render("users/friends", {
+      user: req.session.user,
+    });
+  },
+
   Create: (req, res) => {
     const newUser = new User(req.body);
 
@@ -97,13 +103,13 @@ const UsersController = {
       });
 
       sessionUser.friendRequests = filteredFriendRequests;
-
+      
       User.findByIdAndUpdate(req.session.user._id, sessionUser, (err) => {
         if (err) {
           throw err;
         }
       });
-      res.redirect("/users/profile");
+      res.redirect("/users/friends");
     });
   },
 
