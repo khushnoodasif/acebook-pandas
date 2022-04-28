@@ -13,11 +13,7 @@
 <div class="container-2">
   <div class="card">
     <h1>ADD A POST</h1>
-  </div>
-</div>
-
-<div class="container-2">
-  <div class="card">
+    <hr>
     <form class="form-1" id="new-post-form" action="/posts" method="post">
       <li>
         <label for="message">Message: </label>
@@ -31,6 +27,7 @@
       <input type="hidden" name="firstName" value="{{user.firstName}}">
       <input type="hidden" name="lastName" value="{{user.lastName}}">
       <input type="hidden" name="profilePictureURL" value="{{user.profilePictureURL}}">
+      <br>
       <input class="button" type="submit" value="Post">
     </form>
   </div>
