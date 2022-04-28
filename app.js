@@ -6,6 +6,7 @@ const logger = require("morgan");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const hbs = require("hbs");
+const flash = require('express-flash');
 
 const homeRouter = require("./routes/home");
 const postsRouter = require("./routes/posts");
@@ -82,6 +83,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
+
 app.use(
   session({
     key: "user_sid",
@@ -93,6 +95,9 @@ app.use(
     },
   })
 );
+
+// function to be able to display flash messages
+app.use(flash());
 
 // clear the cookies after user logs out
 app.use((req, res, next) => {

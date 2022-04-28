@@ -317,3 +317,8 @@ footer {
   text-align: center;
   font-size: 2rem;
 }
+
+.error {
+  color: crimson;
+  margin-bottom: 1em;
+}

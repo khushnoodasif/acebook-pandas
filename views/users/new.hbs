@@ -4,6 +4,10 @@
   </div>
 </div>
 
+<div class="error">
+  {{messages.error}}
+</div>
+
 <div class="container-2">
   <div class="card">
     <form class="form-1" id="new-user-form" action="/users" method="post">
@@ -17,7 +21,7 @@
       </li>
       <li>
         <label for="email">Email: </label>
-        <input class="button" id="email" type="email" name="email" value="">
+        <input class="button" id="email" type="email" name="email" value="" placeholder="Enter your e-mail">
       </li>
       <li>
         <label for="password">Password: </label>

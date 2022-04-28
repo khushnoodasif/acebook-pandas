@@ -24,13 +24,42 @@ const UsersController = {
   },
 
   Create: (req, res) => {
-    const user = new User(req.body);
-    user.save((err) => {
+    const newUser = new User(req.body);
+    
+
+    User.findOne({ email: req.body.email }, (err, existingUser) => {
       if (err) {
         throw err;
       }
-      res.status(201).redirect("/posts");
-    });
+      if (existingUser) {
+        req.flash("error", "Account with that email address already exists");
+        return res.redirect("/users/new");
+      }
+          if (newUser.email == "") {
+            req.flash('error', 'Please enter an e-mail');
+            res.redirect("/users/new");
+          } 
+          else if (newUser.password == "") {
+            req.flash('error', 'Please enter a password')
+            res.redirect("/users/new");
+          }
+          else if (newUser.firstName == "") {
+            req.flash('error', 'Please enter a first name')
+            res.redirect("/users/new")
+          } 
+          else if (newUser.lastName == "") {
+            req.flash('error', 'Please enter a last name')
+            res.redirect("/users/new")
+          } 
+          else {
+            newUser.save((err) => {
+              if (err) {
+                throw err;
+              }
+              res.status(201).redirect("/posts");
+            })
+          }
+        })
   },
 
   RequestFriend: (req, res) => {
