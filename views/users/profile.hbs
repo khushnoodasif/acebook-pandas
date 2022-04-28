@@ -52,9 +52,7 @@
 
       <br>
       <input class="button-2" id="submit" type="submit" value="Submit Changes" />
-
-      <p>Please <a class="link" href="/sessions/destroy">log out</a> and log back in to see your changes.</p>
-    </form>
+    
   </div>
 </div>
 
@@ -62,26 +60,25 @@
   <div class="card">
     <h1>ABOUT ME</h1>
     <hr>
-    <form class="form-1" id="user-profile" action="/users/profile" method="post">
       <li>
         <label for="bio">Bio:</label>
-        <input class="button-3" id="bio" type="text" name="bio" value="" />
+        <input class="button-3" id="bio" type="text" name="bio" value="{{user.bio}}" />
       </li>
       <li>
         <label for="location">Location:</label>
-        <input class="button" id="location" type="text" name="location" value="" />
+        <input class="button" id="location" type="text" name="location" value="{{user.location}}" />
       </li>
       <li>
         <label for="hobbie">Hobbie:</label>
-        <input class="button" id="hobbie" type="text" name="hobbie" value="" />
+        <input class="button" id="hobbie" type="text" name="hobbie" value="{{user.hobbie}}" />
       </li>
       <li>
         <label for="favShow">Favourite TV Show:</label>
-        <input class="button" id="favShow" type="text" name="favShow" value="" />
+        <input class="button" id="favShow" type="text" name="favShow" value="{{user.favShow}}" />
       </li>
       <li>
         <label for="favMovie">Favourite Movie:</label>
-        <input class="button" id="favMovie" type="text" name="favMovie" value="" />
+        <input class="button" id="favMovie" type="text" name="favMovie" value="{{user.favMovie}}" />
       </li>
       <br>
       <input class="button-2" id="submit" type="submit" value="Submit Changes" />

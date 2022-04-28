@@ -161,6 +161,17 @@ span .img-2 {
   width: 60%;
 }
 
+.user-ui {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5em;
+}
+
+.user-ui p {
+  margin-left: 10px;
+}
+
 .logo {
   width: 18%;
   display: block;

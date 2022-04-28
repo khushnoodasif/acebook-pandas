@@ -9,6 +9,7 @@ const UsersController = {
       res.render("users/index", {
         users: users,
         currentUser: req.session.user,
+        user: req.session.user
       });
     });
   },
