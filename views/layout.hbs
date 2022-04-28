@@ -15,6 +15,9 @@
   </div>
   {{/if}}
 
+{{#if user.friendRequests}}
+<h1>Pending Friend Requests: {{user.friendRequests.length}}</h1> 
+{{/if}}
   <a href="/posts">
     <img class="logo" src='/images/acebook-white.png'>
   </a>
