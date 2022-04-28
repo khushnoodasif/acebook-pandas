@@ -50,6 +50,13 @@ body {
   background-color: #252525;
 }
 
+body div .friends {
+  font-size: 1.2em;
+  color: #e8e8e8;
+  font-family: "Antonio", sans-serif;
+  margin-right: 10px;
+}
+
 .img-profile-list {
   display: block;
   max-width: 30%;
@@ -168,8 +175,13 @@ span .img-2 {
   font-size: 1.5em;
 }
 
-.user-ui p {
+.user-ui a {
   margin-left: 10px;
+}
+
+.user-ui hr {
+  border: 10px solid #252525;
+  border-radius: 5px;
 }
 
 .logo {
@@ -215,7 +227,7 @@ a {
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  width: 80px;
+  width: 95px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
