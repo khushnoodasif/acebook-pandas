@@ -20,64 +20,74 @@
     <form class="form-1" id="user-profile" action="/users/profile" method="post">
       <span>
         <img class="img-2" id="profilePictureURL" src="{{user.profilePictureURL}}" />
-      <span>
-      <li>
-        <label for="firstName">First Name:</label>
-        <input class="button" id="firstName" type="text" name="firstName" value="{{user.firstName}}" />
-      </li>
-      <li>
-        <label for="lastName">Last Name:</label>
-        <input class="button" id="lastName" type="text" name="lastName" value="{{user.lastName}}" />
-      </li>
-      <li>
-        <label for="email">Email: </label>
-        <input class="button" id="email" type="email" name="email" value="{{user.email}}" />
-      </li>
-      <li>
-        <label for="password">Password: </label>
-        <input class="button" id="password" type="password" name="password" value="{{user.password}}" />
-      </li>
-      <li>
-        <label for="profilePictureURL">Profile Picture URL: </label>
-        <input class="button" id="profilePictureURL" type="profilePictureURL" name="profilePictureURL" value="{{user.profilePictureURL}}" />
-      </li>
+        <span>
+          <li>
+            <label for="firstName">First Name:</label>
+            <input class="button" id="firstName" type="text" name="firstName" value="{{user.firstName}}" />
+          </li>
+          <li>
+            <label for="lastName">Last Name:</label>
+            <input class="button" id="lastName" type="text" name="lastName" value="{{user.lastName}}" />
+          </li>
+          <li>
+            <label for="dob">Date of Birth:</label>
+            <input class="button" id="dob" type="text" name="dob" value="{{user.dob}}" readonly><br>
+          </li>
+          <li>
+            <label for="email">Email: </label>
+            <input class="button" id="email" type="email" name="email" value="{{user.email}}" />
+          </li>
+          <li>
+            <label for="password">Password: </label>
+            <input class="button" id="password" type="password" name="password" value="{{user.password}}" />
+          </li>
+          <li>
+            <label for="passwordConfirmation">Confirm Password:</label>
+            <input class="button" id="passwordConfirmation" type="password" name="passwordConfirmation"
+              value="{{user.passwordConfirmation}}" />
+          </li>
+          <li>
+            <label for="profilePictureURL">Profile Picture URL: </label>
+            <input class="button" id="profilePictureURL" type="profilePictureURL" name="profilePictureURL"
+              value="{{user.profilePictureURL}}" />
+          </li>
 
-      <br>
-        <input class="button-2" id="submit" type="submit" value="Submit Changes" />
+          <br>
+          <input class="button-2" id="submit" type="submit" value="Submit Changes" />
 
-      <p>Please <a class="link" href="/">log out</a> and log back in to see your changes.</p>
+          <p>Please <a class="link" href="/">log out</a> and log back in to see your changes.</p>
     </form>
   </div>
 </div>
 
 {{#each user.friendRequests}}
-  <div class="container-4">
-    <div class="card-2">
-      <div class="user">
-        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
-        <p>{{this.firstName}} {{this.lastName}}</p>
-      </div>
-
-      <hr>
-
-      <ul class="post">
-        <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
-      </ul>
-      <li>
-        <form method="post" action="./friend/new">
-          <input type="hidden" name="id" value="{{this._id}}">
-          <input class="button-2" type="submit" value="Accept">
-        </form>
-        <form method="post" action="./requestfriend/decline">
-          <input type="hidden" name="id" value="{{this._id}}">
-          <input class="button-2" type="submit" value="Decline">
-        </form>
-      </li>
-
-      <hr>
+<div class="container-4">
+  <div class="card-2">
+    <div class="user">
+      <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+      <p>{{this.firstName}} {{this.lastName}}</p>
     </div>
+
+    <hr>
+
+    <ul class="post">
+      <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
+    </ul>
+    <li>
+      <form method="post" action="./friend/new">
+        <input type="hidden" name="id" value="{{this._id}}">
+        <input class="button-2" type="submit" value="Accept">
+      </form>
+      <form method="post" action="./requestfriend/decline">
+        <input type="hidden" name="id" value="{{this._id}}">
+        <input class="button-2" type="submit" value="Decline">
+      </form>
+    </li>
+
+    <hr>
   </div>
-  {{/each}}
+</div>
+{{/each}}
 
 <div class="container-2">
   <div class="card">
