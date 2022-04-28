@@ -91,9 +91,9 @@ const UsersController = {
     User.findById(req.body.id, (err, user) => {
       const sessionUser = req.session.user;
       const { friendRequests } = sessionUser;
-      const filteredSessionRequests = friendRequests.filter(request => { request._id == user._id} )
+      const filteredFriendRequests = friendRequests.filter(request => { request._id == user._id} )
 
-      sessionUser.friendRequests = filteredSessionRequests;
+      sessionUser.friendRequests = filteredFriendRequests;
 
       User.findByIdAndUpdate( req.session.user._id, sessionUser, (err) => {
         if (err) { throw err }
@@ -106,7 +106,7 @@ const UsersController = {
   CreateFriend: (req, res) => {
     User.findById(req.body.id, (err, user) => {
       req.session.user.friends.push(user)
-
+      
       for(var i = 0; i < req.session.user.friendRequests.length; i++) {
         if(req.session.user.friendRequests[i]._id == user._id) {
           req.session.user.friendRequests.splice(i, 1);
@@ -118,8 +118,14 @@ const UsersController = {
           throw err;
           }
         })
-      res.redirect("/users/profile")
-   })
+      }).then(() => {
+        const sessionUser = req.session.user
+        User.findById(req.body.id, (err, user) => {
+        user.friends.push(sessionUser)
+        User.findByIdAndUpdate(user._id, user, (err) => { if (err) { throw err; } } )
+        })
+      })
+    res.redirect("/users/profile")
   },
 
   Remove: (req, res) => {
