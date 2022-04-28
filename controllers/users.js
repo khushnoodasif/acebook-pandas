@@ -43,6 +43,14 @@ const UsersController = {
             req.flash('error', 'Please enter a password')
             res.redirect("/users/new");
           }
+          else if (newUser.passwordCheck == "") {
+            req.flash('error', 'Please confirm your password')
+            res.redirect("/users/new");
+          }
+          else if (newUser.password != newUser.passwordCheck) {
+            req.flash('error', 'Passwords do not match')
+            res.redirect("/users/new");
+          }
           else if (newUser.firstName == "") {
             req.flash('error', 'Please enter a first name')
             res.redirect("/users/new")
@@ -56,6 +64,8 @@ const UsersController = {
               if (err) {
                 throw err;
               }
+              console.log(newUser.password)
+              console.log(newUser.passwordCheck)
               res.status(201).redirect("/posts");
             })
           }
