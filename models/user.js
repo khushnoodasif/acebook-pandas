@@ -8,6 +8,11 @@ const UserSchema = new mongoose.Schema({
   lastName: String,
   dob: String,
   profilePictureURL: String,
+  bio: String,
+  location: String,
+  hobbie: String,
+  favShow: String,
+  favMovie: String,
   friendRequests: [{
     type: mongoose.Schema.Types.Object,
     ref: "User",
