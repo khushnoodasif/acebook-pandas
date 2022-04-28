@@ -4,10 +4,6 @@
   </div>
 </div>
 
-<div class="error">
-  {{messages.error}}
-</div>
-
 <div class="container-2">
   <div class="card">
     <form class="form-1" id="new-user-form" action="/users" method="post">
@@ -37,6 +33,9 @@
       </li>
       
         <input class="button-2" id="submit" type="submit" value="Submit">
+        <div class="error">
+          {{messages.error}}
+        </div>
     </form>
   </div>
 </div>
