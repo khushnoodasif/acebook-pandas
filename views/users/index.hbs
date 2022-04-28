@@ -2,7 +2,13 @@
   <div class="card">
     <nav class="navMenu">
       <a href="/users">Find Friends</a>
-      <a href="/users">My Friends</a>
+      <a href="/users/friends">Friends 
+      {{#if user}}
+      {{#if user.friends.length}}
+      [{{user.friends.length}}]
+      {{/if}}
+      {{/if}}
+      </a>
       <a href="/posts">Posts</a>
       <a href="/users/profile">Profile</a>
       <a href="/sessions/destroy">Log Out</a>
@@ -10,37 +16,37 @@
   </div>
 </div>
 
-<div class="container-2">
-  <div class="card">
-    <h1>Maybe a search or filter function here</h1>
-  </div>
-</div>
-
 <div>
   {{#each users}}
-  <div class="container-4">
-    <div class="card-2">
-      <div class="user-2">
-        <a><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
-        <p>{{this.firstName}} {{this.lastName}}</p>
-        <p>
-          <form method="post" action="/users/requestfriend">
-            <input type="hidden" name="id" value="{{this._id}}">
-            <input type="hidden" name="firstName" value="{{this.firstName}}">
-            <input type="hidden" name="lastName" value="{{this.lastName}}">
-            <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
-            <input type="hidden" name="email" value="{{this.email}}">
-            <input type="hidden" name="_method" value="put">
+    <div class="container-4">
+      <div class="card-2">
+        <div class="user-2">
+          <a><img class="avatar-2" src="{{this.profilePictureURL}}" /></a>
+          <p>{{this.firstName}} {{this.lastName}}</p>
+          <hr>
+          <p>
+            <form method="post" action="/users/requestfriend">
+              <input type="hidden" name="id" value="{{this._id}}" />
+              <input
+                type="hidden"
+                name="firstName"
+                value="{{this.firstName}}"
+              />
+              <input type="hidden" name="lastName" value="{{this.lastName}}" />
+              <input
+                type="hidden"
+                name="profilePictureURL"
+                value="{{this.profilePictureURL}}"
+              />
+              <input type="hidden" name="email" value="{{this.email}}" />
+              <input type="hidden" name="_method" value="put" />
 
-            <input type="submit" class="button" value="Add Friend">
-          </form>
+              <input type="submit" class="button" value="Add Friend" />
+            </form>
 
-          <form method="get" action="/users/profile">
-            <input type="submit" class="button" value="View Your Profile">
-          </form>
-        </p>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
   {{/each}}
 </div>

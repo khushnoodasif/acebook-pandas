@@ -50,6 +50,13 @@ body {
   background-color: #252525;
 }
 
+body div .friends {
+  font-size: 1.2em;
+  color: #e8e8e8;
+  font-family: "Antonio", sans-serif;
+  margin-right: 10px;
+}
+
 .img-profile-list {
   display: block;
   max-width: 30%;
@@ -118,6 +125,10 @@ span .img-2 {
   box-shadow: 0 0 10px #252525;
 }
 
+.avatar-2:hover {
+  box-shadow: 0 0 20px #7d0633;
+}
+
 .card-2 li {
   list-style: none;
   font-size: 1.5em;
@@ -168,12 +179,18 @@ span .img-2 {
   font-size: 1.5em;
 }
 
-.user-ui p {
+.user-ui a {
   margin-left: 10px;
 }
 
+.user-ui hr {
+  border: 10px solid #252525;
+  border-radius: 5px;
+}
+
 .logo {
-  width: 18%;
+  display: relative;
+  max-width: 18%;
   display: block;
   margin: 0 auto;
   margin-bottom: -7%;
@@ -215,7 +232,7 @@ a {
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  width: 80px;
+  width: 95px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }

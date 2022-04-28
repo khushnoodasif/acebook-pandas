@@ -8,16 +8,17 @@
 </head>
 
 <body>
-  {{#if user}}
   <div class="user-ui">
-    <a href="/users/profile">Logged in as: <img class="avatar" src="{{user.profilePictureURL}}"></a>
-    <p>{{user.firstName}} {{user.lastName}}</p>
+    {{#if user}}
+    <a href="/users/profile"><img class="avatar" src="{{user.profilePictureURL}}"></a>
+    <a>{{user.firstName}} {{user.lastName}}</a>
+    {{/if}}
+    <hr>
+    {{#if user.friendRequests}}
+    <h1 class="friends">Pending Friend Requests: {{user.friendRequests.length}}</h1>
+    {{/if}}
   </div>
-  {{/if}}
 
-{{#if user.friendRequests}}
-<h1>Pending Friend Requests: {{user.friendRequests.length}}</h1> 
-{{/if}}
   <a href="/posts">
     <img class="logo" src='/images/acebook-white.png'>
   </a>
