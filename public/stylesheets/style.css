@@ -185,7 +185,8 @@ span .img-2 {
 }
 
 .logo {
-  width: 18%;
+  display: relative;
+  max-width: 18%;
   display: block;
   margin: 0 auto;
   margin-bottom: -7%;

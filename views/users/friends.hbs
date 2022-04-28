@@ -1,0 +1,41 @@
+<div class="container-3">
+  <div class="card">
+    <nav class="navMenu">
+      <a href="/users">Find Friends</a>
+      <a href="/users/friends">Friends</a>
+      <a href="/posts">Posts</a>
+      <a href="/users/profile">Profile</a>
+      <a href="/sessions/destroy">Log Out</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card-2">
+    <h1>FRIEND REQUESTS</h1>
+    <hr>
+    {{#each user.friendRequests}}
+    <div class="user-2">
+      <a href="/users/profile"><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
+      <p>{{this.firstName}} {{this.lastName}}</p>
+      <p>
+        <form method="post" action="./friend/new">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Accept">
+        </form>
+        <form method="post" action="./requestfriend/decline">
+          <input type="hidden" name="id" value="{{this._id}}">
+          <input class="button-2" type="submit" value="Decline">
+        </form>
+      </p>
+    </div>
+    <hr>
+    {{/each}}
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="card">
+    <h1>FRIENDS</h1>
+  </div>
+</div>
