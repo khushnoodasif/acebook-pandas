@@ -25,9 +25,10 @@ const PostsController = {
           throw err;
         }
         res.status(201).redirect("/posts");
-      }
+       }
     );
   },
+  
 
   Create: (req, res) => {
     const post = new Post(req.body);
@@ -46,6 +47,10 @@ const PostsController = {
   },
 
   addComment: (req, res) => {
+    if (req.body.comment == "") {
+      req.flash("errorComment", "Cannot submit a blank comment");
+      res.redirect("/posts");
+    } else {
     Post.updateOne(
       { _id: req.body.post },
       {
@@ -63,6 +68,7 @@ const PostsController = {
         res.status(201).redirect("/posts");
       }
     );
+   }
   },
 
   Delete: (req, res) => {

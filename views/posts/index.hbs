@@ -76,14 +76,19 @@
         <input type="hidden" name="post" value="{{this._id}}">
         {{#if this.comments.length}}
         <input class="button" type="text" name="comment" , id="{{this._id}}" placeholder="Make a Comment...">
-        <input class="button" type="submit" value="Add Comment">
+        <input class="button" type="submit" value="AddComment">
         {{else}}
         <input class="button" type="text" name="comment" , id="{{this._id}}" placeholder="Be the first to comment...">
-        <input class="button" type="submit" value="Add Comment">
+        <input class="button" type="submit" value="AddComment">
         {{/if}}
       </form>
+        
+        <div class="error">
+          {{messages.errorComment}}
+        </div>
 
       <hr>
+
 
       <div class="user">
         {{#each this.comments}}
