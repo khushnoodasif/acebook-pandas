@@ -1,7 +1,7 @@
 <div class="container-3">
   <div class="card">
     <nav class="navMenu">
-      <a href="/">Home</a>
+      <a href="/posts">Home</a>
       <a href="/users/new">Friends</a>
       <a href="/posts">Posts</a>
       <a href="/users/profile">Profile</a>
@@ -90,34 +90,28 @@
   </div>
 </div>
 
-{{#each user.friendRequests}}
-<div class="container-4">
-  <div class="card-2">
-    <div class="user">
-      <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
-      <p>{{this.firstName}} {{this.lastName}}</p>
+<div>
+  {{#each user.friendRequests}}
+  <div class="container-4">
+    <div class="card-2">
+      <div class="user-2">
+        <a href="/users/profile"><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
+        <p>{{this.firstName}} {{this.lastName}}</p>
+        <p>
+          <form method="post" action="./friend/new">
+            <input type="hidden" name="id" value="{{this._id}}">
+            <input class="button-2" type="submit" value="Accept">
+          </form>
+          <form method="post" action="./requestfriend/decline">
+            <input type="hidden" name="id" value="{{this._id}}">
+            <input class="button-2" type="submit" value="Decline">
+          </form>
+        </p>
+      </div>
     </div>
-
-    <hr>
-
-    <ul class="post">
-      <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
-    </ul>
-    <li>
-      <form method="post" action="./friend/new">
-        <input type="hidden" name="id" value="{{this._id}}">
-        <input class="button-2" type="submit" value="Accept">
-      </form>
-      <form method="post" action="./requestfriend/decline">
-        <input type="hidden" name="id" value="{{this._id}}">
-        <input class="button-2" type="submit" value="Decline">
-      </form>
-    </li>
-
-    <hr>
   </div>
+  {{/each}}
 </div>
-{{/each}}
 
 <div class="container-2">
   <div class="card">

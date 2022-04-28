@@ -20,32 +20,26 @@
   {{#each users}}
   <div class="container-4">
     <div class="card-2">
-      <div class="user">
-        <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
+      <div class="user-2">
+        <a><img class="avatar-2" src="{{this.profilePictureURL}}"></a>
         <p>{{this.firstName}} {{this.lastName}}</p>
+        <p>
+          <form method="post" action="/users/requestfriend">
+            <input type="hidden" name="id" value="{{this._id}}">
+            <input type="hidden" name="firstName" value="{{this.firstName}}">
+            <input type="hidden" name="lastName" value="{{this.lastName}}">
+            <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
+            <input type="hidden" name="email" value="{{this.email}}">
+            <input type="hidden" name="_method" value="put">
+
+            <input type="submit" class="button" value="Add Friend">
+          </form>
+
+          <form method="get" action="/users/profile">
+            <input type="submit" class="button" value="View Your Profile">
+          </form>
+        </p>
       </div>
-
-      <hr>
-
-      <ul class="post">
-        <span class="img"><img class="img-profile-list" src="{{this.profilePictureURL}}"></span>
-      </ul>
-      <li>
-        <form method="post" action="/users/requestfriend">
-          <input type="hidden" name="id" value="{{this._id}}">
-          <input type="hidden" name="firstName" value="{{this.firstName}}">
-          <input type="hidden" name="lastName" value="{{this.lastName}}">
-          <input type="hidden" name="profilePictureURL" value="{{this.profilePictureURL}}">
-          <input type="hidden" name="email" value="{{this.email}}">
-          <input type="hidden" name="_method" value="put">
-          <input type="submit" class="button" value="Add Friend">
-        </form>
-        <form method="get" action="/users/profile">
-          <input type="submit" class="button" value="View Your Profile">
-        </form>
-      </li>
-
-      <hr>
     </div>
   </div>
   {{/each}}
