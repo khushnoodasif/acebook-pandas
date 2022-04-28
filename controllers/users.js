@@ -139,7 +139,7 @@ const UsersController = {
         });
       });
     });
-    res.redirect("/users/profile");
+    res.redirect("/users/friends");
   },
 
   Remove: (req, res) => {
