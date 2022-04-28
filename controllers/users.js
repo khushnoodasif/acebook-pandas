@@ -110,7 +110,6 @@ const UsersController = {
 
       User.findOne( { _id: req.session.user._id } ).exec((err, currentUser) => {
         if (err) {  throw err; }
-        console.log('currentUser: ', currentUser)
 
         const { friendRequests } = currentUser
         const filteredFriendRequests = friendRequests.filter(request => request.toString() != user._id.toString())
@@ -125,54 +124,16 @@ const UsersController = {
       })
     },
 
-  // CreateFriend: (req, res) => {
-  //   User.findById(req.body.id, (err, user) => {
-  //     req.session.user.friends.push(user)
-  //     //console.log('req.session.user.friends: ', req.session.user.friends)
-  //     const { friendRequests } = req.session.user
-  //     console.log('id: ', req.session.user._id)
-  //     console.log('id type: ', typeof req.session.user._id)
-  //     console.log('friendRequests: ', friendRequests)
-  //     console.log('friendRequests obj type: ', typeof friendRequests[0])
-      
-  //     const filteredFriendRequests = friendRequests.filter(request => request.toString() != user._id.toString())
-  //     console.log('filteredFriendRequests: ', filteredFriendRequests)
-
-  //     req.session.user.friendRequests = filteredFriendRequests;
-  //     console.log('req.session.user.friendRequests: ', req.session.user.friendRequests)
-
-  //     // for (var i = 0; i < req.session.user.friendRequests.length; i++) {
-  //     //   if (req.session.user.friendRequests[i]._id == user._id) {
-  //     //     req.session.user.friendRequests.splice(i, 1);
-  //     //   }
-  //     // }
-
-  //     User.findByIdAndUpdate(req.session.user._id, req.session.user, (err) => {
-  //       if (err) {
-  //         throw err;
-  //       }
-  //     });
-  //   }).then(() => {
-  //     const sessionUser = req.session.user;
-  //     User.findById(req.body.id, (err, user) => {
-  //       user.friends.push(sessionUser);
-  //       User.findByIdAndUpdate(user._id, user, (err) => {
-  //         if (err) {
-  //           throw err;
-  //         }
-  //       });
-  //     });
-  //   });
-  //   res.redirect("/users/friends");
-  // },
-
   CreateFriend: (req, res) => {
     const sessionUser = req.session.user
     sessionUser.friends.push(req.body.id)
+
     sessionUser.friendRequests = sessionUser.friendRequests.filter(request => request.toString() != req.body.id.toString())
+
     User.findByIdAndUpdate(sessionUser._id, sessionUser, (err) => {
       if (err) {  throw err; }
     });
+    
     User.findById(req.body.id, (err, user) => {
       if (err) {  throw err; }
       user.friends.push(sessionUser)
