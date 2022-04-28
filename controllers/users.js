@@ -19,16 +19,25 @@ const UsersController = {
   },
 
   Profile: (req, res) => {
-    res.render("users/profile", {
-      user: req.session.user,
+    User.findOne({ _id: req.session.user }).
+    populate("friends").populate("friendRequests").exec((err, user) => {
+      if (err) {  throw err; }
+      res.render("users/profile", {
+      user: user,
+      });
     });
   },
 
   Friends: (req, res) => {
-    res.render("users/friends", {
-      user: req.session.user,
+    User.findOne( { _id: req.session.user._id } ).
+    populate("friends").populate("friendRequests").exec((err, user) => {
+      if (err) {  throw err; }
+      res.render("users/friends", {
+        user: user,
+      });
     });
   },
+    
 
   Create: (req, res) => {
     const newUser = new User(req.body);
@@ -95,22 +104,36 @@ const UsersController = {
   },
 
   DeclineRequestFriend: (req, res) => {
-    User.findById(req.body.id, (err, user) => {
-      const sessionUser = req.session.user;
-      const { friendRequests } = sessionUser;
-      const filteredFriendRequests = friendRequests.filter((request) => {
-        request._id == user._id;
-      });
+    console.log('requests before decline: ', req.session.user.friendRequests)
 
-      sessionUser.friendRequests = filteredFriendRequests;
-      
-      User.findByIdAndUpdate(req.session.user._id, sessionUser, (err) => {
-        if (err) {
-          throw err;
-        }
-      });
-      res.redirect("/users/friends");
-    });
+    User.findOne( { _id: req.body.id } ).exec((err, user) => {
+      if (err) {  throw err; }
+      console.log('user: ', user)
+
+      User.findOne( { _id: req.session.user._id } ).exec((err, currentUser) => {
+        if (err) {  throw err; }
+        console.log('currentUser: ', currentUser)
+
+        const { friendRequests } = currentUser
+        console.log('friendRequests: ', friendRequests)
+        const filteredFriendRequests = friendRequests.filter((request) => {
+          request.toString()
+          console.log('------------------------------------')
+          console.log('request: ', request)
+          console.log(typeof request)
+          console.log('user id: ', user._id)
+          console.log(typeof user._id)
+          console.log('------------------------------------')
+        request.toString() != user._id.toString()
+      })
+      currentUser.friendRequests = filteredFriendRequests;
+      console.log('current requests after decline: ', currentUser.friendRequests)
+      User.findByIdAndUpdate(currentUser._id, currentUser, (err) => {
+        if (err) {  throw err; }
+        res.redirect("/users/friends")
+        })
+      })
+    })
   },
 
   CreateFriend: (req, res) => {
@@ -153,8 +176,15 @@ const UsersController = {
       if (err) {
         throw err;
       }
-      req.session.user = req.body;
-      res.redirect("/users/profile");
+    }).then(() => {
+      User.findOne({ _id: req.session.user._id }).
+      populate("friends").populate("friendRequests").exec((err, user) => {
+        if (err) {  throw err; }
+        res.render("users/profile", {
+        user: user,
+        changeSubmitted: true,
+        });
+      });
     });
   },
 
