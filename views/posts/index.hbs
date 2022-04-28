@@ -77,6 +77,10 @@
         </form>
       </li>
 
+      <div class="error">
+      {{messages.errorComment}}
+      </div>
+
       <form method="post" action="posts/comments/new">
         <input type="hidden" name="post" value="{{this._id}}">
         {{#if this.comments.length}}
@@ -90,6 +94,7 @@
 
       <hr>
 
+
       <div class="user">
         {{#each this.comments}}
         <p>
@@ -99,7 +104,17 @@
         {{/each}}
       </div>
 
+      
+
     </div>
   </div>
   {{/each}}
 </div>
+
+<div class="error">
+  {{messages.errorComment}}
+</div>
+
+
+
+    
