@@ -13,11 +13,7 @@
 <div class="container-2">
   <div class="card">
     <h1>ADD A POST</h1>
-  </div>
-</div>
-
-<div class="container-2">
-  <div class="card">
+    <hr>
     <form class="form-1" id="new-post-form" action="/posts" method="post">
       <li>
         <label for="message">Message: </label>
@@ -31,6 +27,7 @@
       <input type="hidden" name="firstName" value="{{user.firstName}}">
       <input type="hidden" name="lastName" value="{{user.lastName}}">
       <input type="hidden" name="profilePictureURL" value="{{user.profilePictureURL}}">
+      <br>
       <input class="button" type="submit" value="Post">
     </form>
     <div class="error">
@@ -52,7 +49,7 @@
       <div class="user">
         <a href="/users/profile"><img class="avatar" src="{{this.profilePictureURL}}"></a>
         <p>{{this.firstName}} {{this.lastName}}</p>
-        <a class="edit">Posted {{timeSince this.timestamp}} ago</a>
+        <a class="edit">Posted: {{timeSince this.timestamp}} ago | {{this.createdAt}}</a>
       </div>
 
       <hr>
@@ -60,14 +57,14 @@
       <ul class="post">
         <span class="post-message">{{this.message}}</span>
         {{#if this.imageURL}}
-        <span class="img"><img src="{{this.imageURL}}"></span>
+        <li class="img-post"><img src="{{this.imageURL}}"></li>
         {{/if}}
       </ul>
 
       <li>
         <form method="post" action="/posts/like">
           <input type="hidden" name="post" value="{{this._id}}">
-          <button class="button-4" type="submit">🤍{{this.likes.length}}</button>
+          <button class="button" type="submit">🤍{{this.likes.length}}</button>
         </form>
         <form method="post" action="/posts/delete">
           <input type="hidden" name="postId" value="{{this._id}}">

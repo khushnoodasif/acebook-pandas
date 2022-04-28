@@ -16,6 +16,10 @@
         <input class="button" id="lastName" type="text" name="lastName" value="">
       </li>
       <li>
+        <label for="dob">Date of Birth:</label>
+        <input class="button" id="dob" type="date" name="dob" value="">
+      </li>
+      <li>
         <label for="email">Email: </label>
         <input class="button" id="email" type="email" name="email" value="" placeholder="Enter your e-mail">
       </li>
@@ -28,13 +32,18 @@
         <input class="button" id="passwordCheck" type="password" name="passwordCheck" value="">
       </li>
       <li>
+        <label for="passwordConfirmation">Confirm Password:</label>
+        <input class="button" id="passwordConfirmation" type="password" name="passwordConfirmation" value="">
+      <li>
         <label for="profilePictureURL">Profile Picture URL: </label>
         <input class="button" id="profilePictureURL" type="text" name="profilePictureURL" value="/images/avatar.png">
       </li>
       
         <input class="button-2" id="submit" type="submit" value="Submit">
+        <div class="container-2">
         <div class="error">
           {{messages.error}}
+        </div>
         </div>
     </form>
   </div>

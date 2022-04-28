@@ -55,6 +55,16 @@ body {
   max-width: 30%;
 }
 
+ul .img-post img {
+  display: block;
+  margin: 2% 0;
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 3%;
+  border: 1px solid #ccc;
+}
+
 .img-2 {
   display: block;
   margin: 0 auto;
@@ -98,6 +108,16 @@ span .img-2 {
   box-shadow: 0 0 20px #7d0633;
 }
 
+.avatar-2 {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px #252525;
+}
+
 .card-2 li {
   list-style: none;
   font-size: 1.5em;
@@ -115,6 +135,19 @@ span .img-2 {
   margin-left: 10px;
 }
 
+.card-2 .user-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2.5em;
+  margin-left: 15%;
+}
+
+.card-2 .user-2 p {
+  margin-left: 10px;
+}
+
+
 .card-2 .edit {
   display: relative;
   color: #7d0633;
@@ -126,6 +159,17 @@ span .img-2 {
   color: #7d0633;
   font-size: 2.5em;
   width: 60%;
+}
+
+.user-ui {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5em;
+}
+
+.user-ui p {
+  margin-left: 10px;
 }
 
 .logo {
@@ -247,7 +291,7 @@ a {
 }
 
 .button-4 {
-  display: inline-block;
+  display: absolute;
   padding: 0.3em 1.2em;
   margin: 0 0.3em 0.3em 0;
   border-radius: 2em;
@@ -268,7 +312,6 @@ a {
 .button-4:hover {
   background-color: #7d0633;
 }
-
 
 .form-1 {
   display: inline-block;
@@ -320,5 +363,5 @@ footer {
 
 .error {
   color: crimson;
-  margin-bottom: 1em;
+  font-size: 1.5rem;
 }

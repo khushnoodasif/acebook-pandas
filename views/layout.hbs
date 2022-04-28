@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AceBook</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <a href="/posts">
+
+<head>
+  <title>AceBook</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  {{#if user}}
+  <div class="user-ui">
+    <a href="/users/profile">Logged in as: <img class="avatar" src="{{user.profilePictureURL}}"></a>
+    <p>{{user.firstName}} {{user.lastName}}</p>
+  </div>
+  {{/if}}
+
+  <a href="/posts">
     <img class="logo" src='/images/acebook-white.png'>
-    </a>
+  </a>
 
-    {{{body}}}
-  </body>
+  {{{body}}}
+</body>
 
-  <footer>
+<footer>
   <p class="panda">Copyright &copy; 2022 <img src="/images/pandas.png"> PANDAS.</p>
-  </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-        var scrollpos = sessionStorage.getItem('scrollpos');
-        if (scrollpos) {
-            window.scrollTo(0, scrollpos);
-            sessionStorage.removeItem('scrollpos');
-        }
-    });
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    var scrollpos = sessionStorage.getItem('scrollpos');
+    if (scrollpos) {
+      window.scrollTo(0, scrollpos);
+      sessionStorage.removeItem('scrollpos');
+    }
+  });
 
-    window.addEventListener("beforeunload", function (e) {
-        sessionStorage.setItem('scrollpos', window.scrollY);
-    });
+  window.addEventListener("beforeunload", function (e) {
+    sessionStorage.setItem('scrollpos', window.scrollY);
+  });
 </script>
+
 </html>

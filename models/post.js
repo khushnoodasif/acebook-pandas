@@ -1,10 +1,17 @@
 const mongoose = require("mongoose");
 
+const date = new Date
+var dateFormat = date.toDateString()
+
 const PostSchema = new mongoose.Schema({
   title: String,
   message: String,
   imageURL: String,
   timestamp: Date,
+  createdAt: {
+    type: String,
+    default: dateFormat
+  },
   user_id: String,
   firstName: String,
   lastName: String,
