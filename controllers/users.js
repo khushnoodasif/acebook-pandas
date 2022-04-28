@@ -44,6 +44,14 @@ const UsersController = {
             req.flash('error', 'Please enter a password.')
             res.redirect("/users/new");
           }
+          else if (newUser.passwordCheck == "") {
+            req.flash('error', 'Please confirm your password')
+            res.redirect("/users/new");
+          }
+          else if (newUser.password != newUser.passwordCheck) {
+            req.flash('error', 'Passwords do not match')
+            res.redirect("/users/new");
+          }
           else if (newUser.firstName == "") {
             req.flash('error', 'Please enter a first name.')
             res.redirect("/users/new")
@@ -61,6 +69,8 @@ const UsersController = {
               if (err) {
                 throw err;
               }
+              console.log(newUser.password)
+              console.log(newUser.passwordCheck)
               res.status(201).redirect("/posts");
             })
           }
@@ -86,9 +96,9 @@ const UsersController = {
     User.findById(req.body.id, (err, user) => {
       const sessionUser = req.session.user;
       const { friendRequests } = sessionUser;
-      const filteredSessionRequests = friendRequests.filter(request => { request._id == user._id} )
+      const filteredFriendRequests = friendRequests.filter(request => { request._id == user._id} )
 
-      sessionUser.friendRequests = filteredSessionRequests;
+      sessionUser.friendRequests = filteredFriendRequests;
 
       User.findByIdAndUpdate( req.session.user._id, sessionUser, (err) => {
         if (err) { throw err }
@@ -101,7 +111,7 @@ const UsersController = {
   CreateFriend: (req, res) => {
     User.findById(req.body.id, (err, user) => {
       req.session.user.friends.push(user)
-
+      
       for(var i = 0; i < req.session.user.friendRequests.length; i++) {
         if(req.session.user.friendRequests[i]._id == user._id) {
           req.session.user.friendRequests.splice(i, 1);
@@ -113,8 +123,14 @@ const UsersController = {
           throw err;
           }
         })
-      res.redirect("/users/profile")
-   })
+      }).then(() => {
+        const sessionUser = req.session.user
+        User.findById(req.body.id, (err, user) => {
+        user.friends.push(sessionUser)
+        User.findByIdAndUpdate(user._id, user, (err) => { if (err) { throw err; } } )
+        })
+      })
+    res.redirect("/users/profile")
   },
 
   Remove: (req, res) => {
