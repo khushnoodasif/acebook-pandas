@@ -55,6 +55,16 @@ body {
   max-width: 30%;
 }
 
+ul .img-post img {
+  display: block;
+  margin: 2% 0;
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 3%;
+  border: 1px solid #ccc;
+}
+
 .img-2 {
   display: block;
   margin: 0 auto;
