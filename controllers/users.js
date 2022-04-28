@@ -115,26 +115,17 @@ const UsersController = {
         console.log('currentUser: ', currentUser)
 
         const { friendRequests } = currentUser
-        console.log('friendRequests: ', friendRequests)
-        const filteredFriendRequests = friendRequests.filter((request) => {
-          request.toString()
-          console.log('------------------------------------')
-          console.log('request: ', request)
-          console.log(typeof request)
-          console.log('user id: ', user._id)
-          console.log(typeof user._id)
-          console.log('------------------------------------')
-        request.toString() != user._id.toString()
-      })
-      currentUser.friendRequests = filteredFriendRequests;
-      console.log('current requests after decline: ', currentUser.friendRequests)
-      User.findByIdAndUpdate(currentUser._id, currentUser, (err) => {
-        if (err) {  throw err; }
-        res.redirect("/users/friends")
+        const filteredFriendRequests = friendRequests.filter(request => request.toString() != user._id.toString())
+       
+        currentUser.friendRequests = filteredFriendRequests;
+
+        User.findByIdAndUpdate(currentUser._id, currentUser, (err) => {
+          if (err) {  throw err; }
+          res.redirect("/users/friends")
+          })
         })
       })
-    })
-  },
+    },
 
   CreateFriend: (req, res) => {
     User.findById(req.body.id, (err, user) => {
