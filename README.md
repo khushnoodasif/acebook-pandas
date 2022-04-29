@@ -83,7 +83,6 @@ Some people occasionally experience MongoDB connection errors when running the t
 
 ## AceBook Model
 
-<img src="./public/images/acebook-model.png">
 <img src="./public/images/acebook-model-2.png">
 
 ## AceBook Web Pages
