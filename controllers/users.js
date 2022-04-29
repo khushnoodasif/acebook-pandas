@@ -19,16 +19,25 @@ const UsersController = {
   },
 
   Profile: (req, res) => {
-    res.render("users/profile", {
-      user: req.session.user,
+    User.findOne({ _id: req.session.user }).
+    populate("friends").populate("friendRequests").exec((err, user) => {
+      if (err) {  throw err; }
+      res.render("users/profile", {
+      user: user,
+      });
     });
   },
 
   Friends: (req, res) => {
-    res.render("users/friends", {
-      user: req.session.user,
+    User.findOne( { _id: req.session.user._id } ).
+    populate("friends").populate("friendRequests").exec((err, user) => {
+      if (err) {  throw err; }
+      res.render("users/friends", {
+        user: user,
+      });
     });
   },
+    
 
   Create: (req, res) => {
     const newUser = new User(req.body);
@@ -95,52 +104,46 @@ const UsersController = {
   },
 
   DeclineRequestFriend: (req, res) => {
-    User.findById(req.body.id, (err, user) => {
-      const sessionUser = req.session.user;
-      const { friendRequests } = sessionUser;
-      const filteredFriendRequests = friendRequests.filter((request) => {
-        request._id == user._id;
-      });
+    User.findOne( { _id: req.body.id } ).exec((err, user) => {
+      if (err) {  throw err; }
+      console.log('user: ', user)
 
-      sessionUser.friendRequests = filteredFriendRequests;
-      
-      User.findByIdAndUpdate(req.session.user._id, sessionUser, (err) => {
-        if (err) {
-          throw err;
-        }
-      });
-      res.redirect("/users/friends");
-    });
-  },
+      User.findOne( { _id: req.session.user._id } ).exec((err, currentUser) => {
+        if (err) {  throw err; }
+
+        const { friendRequests } = currentUser
+        const filteredFriendRequests = friendRequests.filter(request => request.toString() != user._id.toString())
+       
+        currentUser.friendRequests = filteredFriendRequests;
+
+        User.findByIdAndUpdate(currentUser._id, currentUser, (err) => {
+          if (err) {  throw err; }
+          res.redirect("/users/friends")
+          })
+        })
+      })
+    },
 
   CreateFriend: (req, res) => {
+    const sessionUser = req.session.user
+    sessionUser.friends.push(req.body.id)
+
+    sessionUser.friendRequests = sessionUser.friendRequests.filter(request => request.toString() != req.body.id.toString())
+
+    User.findByIdAndUpdate(sessionUser._id, sessionUser, (err) => {
+      if (err) {  throw err; }
+    });
+    
     User.findById(req.body.id, (err, user) => {
-      req.session.user.friends.push(user);
-
-      for (var i = 0; i < req.session.user.friendRequests.length; i++) {
-        if (req.session.user.friendRequests[i]._id == user._id) {
-          req.session.user.friendRequests.splice(i, 1);
-        }
-      }
-
-      User.findByIdAndUpdate(req.session.user._id, req.session.user, (err) => {
-        if (err) {
-          throw err;
-        }
+      if (err) {  throw err; }
+      user.friends.push(sessionUser)
+      User.findByIdAndUpdate(user._id, user, (err) => {
+        if (err) {  throw err; }
       });
     }).then(() => {
-      const sessionUser = req.session.user;
-      User.findById(req.body.id, (err, user) => {
-        user.friends.push(sessionUser);
-        User.findByIdAndUpdate(user._id, user, (err) => {
-          if (err) {
-            throw err;
-          }
-        });
-      });
-    });
-    res.redirect("/users/friends");
-  },
+      res.redirect("/users/friends")
+    })
+  },   
 
   Remove: (req, res) => {
     res.render("users/delete", {
@@ -153,8 +156,15 @@ const UsersController = {
       if (err) {
         throw err;
       }
-      req.session.user = req.body;
-      res.redirect("/users/profile");
+    }).then(() => {
+      User.findOne({ _id: req.session.user._id }).
+      populate("friends").populate("friendRequests").exec((err, user) => {
+        if (err) {  throw err; }
+        res.render("users/profile", {
+        user: user,
+        changeSubmitted: true,
+        });
+      });
     });
   },
 

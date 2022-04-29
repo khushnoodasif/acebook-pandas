@@ -14,11 +14,11 @@ const UserSchema = new mongoose.Schema({
   favShow: String,
   favMovie: String,
   friendRequests: [{
-    type: mongoose.Schema.Types.Object,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   }],
   friends: [{
-    type: mongoose.Schema.Types.Object,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   }],
 });

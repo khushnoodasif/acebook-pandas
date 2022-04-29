@@ -58,6 +58,14 @@
       <br>
       <input class="button-2" id="submit" type="submit" value="Submit Changes" />
 
+       <div class="container-2">
+        <div class="error">
+          {{#if changeSubmitted}}
+          <h2>Changes Submitted</h2>
+          {{/if}}
+        </div>
+        </div>
+
   </div>
 </div>
 
@@ -75,7 +83,7 @@
         <input class="button" id="location" type="text" name="location" value="{{user.location}}" />
       </li>
       <li>
-        <label for="hobbie">Hobbie:</label>
+        <label for="hobbie">Hobby:</label>
         <input class="button" id="hobbie" type="text" name="hobbie" value="{{user.hobbie}}" />
       </li>
       <li>
@@ -88,7 +96,17 @@
       </li>
       <br>
       <input class="button-2" id="submit" type="submit" value="Submit Changes" />
+      
       </form>
+
+      <div class="container-2">
+        <div class="error">
+          {{#if changeSubmitted}}
+          <h2>Changes Submitted</h2>
+          {{/if}}
+        </div>
+        </div>
+
     </div>
   </div>
 </div>
