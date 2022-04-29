@@ -95,7 +95,6 @@ Some people occasionally experience MongoDB connection errors when running the t
 <img src="./public/images/page6.png">
 <img src="./public/images/page7.png">
 <img src="./public/images/page8.png">
-<img src="./public/images/page9.png">
 
 ## User Stories
 ```
